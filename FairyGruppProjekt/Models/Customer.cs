@@ -5,7 +5,7 @@ namespace FairyGruppProjekt.Models
     public class Customer
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string FirstName { get; set; }
