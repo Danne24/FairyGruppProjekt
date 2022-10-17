@@ -2,7 +2,7 @@
 
 namespace FairyGruppProjekt.Models
 {
-    public class Customer
+    public class Customer 
     {
         [Key]
         public int Id { get; set; }
