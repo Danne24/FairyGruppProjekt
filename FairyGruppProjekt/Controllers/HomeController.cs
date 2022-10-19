@@ -1,4 +1,6 @@
 ﻿using FairyGruppProjekt.Models;
+using FairyGruppProjekt.Models.Interfaces;
+using FairyGruppProjekt.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +8,20 @@ namespace FairyGruppProjekt.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IProductRepository _ProductRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IProductRepository ProductRepository)
         {
-            _logger = logger;
+            _ProductRepository = ProductRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var homeViewModel = new HomeViewModel
+            {
+                ProductOnSale = _ProductRepository.GetProductOnSale
+            };
+            return View(homeViewModel);
         }
     }
 }
