@@ -32,7 +32,7 @@ namespace FairyGruppProjekt.Models.Repositories
                 {
                     Amount = shoppigCartItem.Amount,
                     Price = shoppigCartItem.Product.Price,
-                    ProductId = shoppigCartItem.Product.productId,
+                    ProductId = shoppigCartItem.Product.ProductId,
                     OrderId = order.OrderId
                 };
 

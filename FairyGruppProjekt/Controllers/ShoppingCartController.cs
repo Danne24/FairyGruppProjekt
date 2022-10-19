@@ -1,4 +1,5 @@
 ﻿using FairyGruppProjekt.Models;
+using FairyGruppProjekt.Models.Interfaces;
 using FairyGruppProjekt.Models.Repositories;
 using FairyGruppProjekt.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,7 @@ namespace FairyGruppProjekt.Controllers
 
         public RedirectToActionResult AddToShoppingCart(int productId)
         {
-            var selectedProduct = _productRepository.GetAllProduct.FirstOrDefault(p => p.ProductId == productId);
+            var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(p => p.ProductId == productId);
 
             if (selectedProduct != null)
             {
@@ -47,7 +48,7 @@ namespace FairyGruppProjekt.Controllers
 
         public RedirectToActionResult RemoveFromShoppingCart(int productId)
         {
-            var selectedProduct = _productRepository.GetAllProduct.FirstOrDefault(p => p.ProductId == productId);
+            var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(p => p.ProductId == productId);
 
             if (selectedProduct != null)
             {

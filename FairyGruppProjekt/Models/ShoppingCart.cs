@@ -30,7 +30,7 @@ namespace FairyGruppProjekt.Models
 
         public void AddToCart(Product product, int amount)
         {
-            var ShoppingCartItem = _appDbContext.ShoppingCartItems.SingleOrDefault(c => c.Product.productId == product.productId
+            var ShoppingCartItem = _appDbContext.ShoppingCartItems.SingleOrDefault(c => c.Product.ProductId == product.ProductId
             && c.ShoppingCartId == ShoppingCartID);
 
             if (ShoppingCartItem == null)
@@ -53,7 +53,7 @@ namespace FairyGruppProjekt.Models
 
         public int RemoveFromCart(Product product)
         {
-            var ShoppingCartItem = _appDbContext.ShoppingCartItems.SingleOrDefault(c => c.Product.productId == product.productId
+            var ShoppingCartItem = _appDbContext.ShoppingCartItems.SingleOrDefault(c => c.Product.ProductId == product.ProductId
             && c.ShoppingCartId == ShoppingCartID);
 
             var localAmount = 0;
