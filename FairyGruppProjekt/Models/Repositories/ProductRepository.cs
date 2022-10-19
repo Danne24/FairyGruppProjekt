@@ -28,7 +28,7 @@ namespace FairyGruppProjekt.Models.Repositories
         public Product Get(int id)
         {
             var product = _context.Products.FirstOrDefault(p => p.productId == id);
-           
+
             return product;
         }
 
