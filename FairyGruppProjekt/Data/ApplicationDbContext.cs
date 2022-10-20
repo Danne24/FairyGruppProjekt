@@ -25,11 +25,11 @@ namespace FairyGruppProjekt.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Chocolate Product" , CategoryDescription = "TandläkarGodis"});
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Fruit Product", CategoryDescription = "TandläkarGodis" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 3, CategoryName = "Gummy Product", CategoryDescription = "TandläkarGodis" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Halloween Product", CategoryDescription = "TandläkarGodis" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Hard Product", CategoryDescription = "TandläkarGodis" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Chocolate Product" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Fruit Product" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 3, CategoryName = "Gummy Product" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Halloween Product"});
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Hard Product" });
 
 
             modelBuilder.Entity<Product>().HasData(new Product
