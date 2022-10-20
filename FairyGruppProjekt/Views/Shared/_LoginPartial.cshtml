@@ -5,8 +5,11 @@
 
 
 <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    
     <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
@@ -26,6 +29,8 @@ else
             <a  asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     
+   
     
 }
 </ul>
+ </div>
