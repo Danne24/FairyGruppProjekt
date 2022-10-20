@@ -1,9 +1,9 @@
-﻿@*@model ProductListViewModel
+﻿@model ProductListViewModel
 
 
 
           <h1>@Model.CurrentCategory</h1>
-        @foreach (var candy in Model.Candies)
+        @foreach (var product in Model.Products)
         {
-           <partial name="_candyCard" model="candy" />
-      *@  }
+           <partial name="_Productcard" model="product" />
+        }
