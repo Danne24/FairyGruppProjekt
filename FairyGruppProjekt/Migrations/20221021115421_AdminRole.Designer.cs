@@ -4,16 +4,18 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FairyGruppProjekt.Data.Migrations
+namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221021115421_AdminRole")]
+    partial class AdminRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,10 +32,6 @@ namespace FairyGruppProjekt.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
-                    b.Property<string>("CategoryDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -46,31 +44,26 @@ namespace FairyGruppProjekt.Data.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CategoryDescription = "TandläkarGodis",
                             CategoryName = "Chocolate Product"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CategoryDescription = "TandläkarGodis",
                             CategoryName = "Fruit Product"
                         },
                         new
                         {
                             CategoryId = 3,
-                            CategoryDescription = "TandläkarGodis",
                             CategoryName = "Gummy Product"
                         },
                         new
                         {
                             CategoryId = 4,
-                            CategoryDescription = "TandläkarGodis",
                             CategoryName = "Halloween Product"
                         },
                         new
                         {
                             CategoryId = 5,
-                            CategoryDescription = "TandläkarGodis",
                             CategoryName = "Hard Product"
                         });
                 });
@@ -565,10 +558,12 @@ namespace FairyGruppProjekt.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -605,10 +600,12 @@ namespace FairyGruppProjekt.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
