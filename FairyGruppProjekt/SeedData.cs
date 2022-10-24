@@ -1,21 +1,22 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FairyGruppProjekt.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace FairyGruppProjekt
 {
     public static class SeedData
     {
-        public static void Seed(UserManager<IdentityUser> userManager,
+        public static void Seed(UserManager<AppUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             SeedRoles(roleManager);
             SeedUsers(userManager);
         }
 
-        private static void SeedUsers(UserManager<IdentityUser> userManager)
+        private static void SeedUsers(UserManager<AppUser> userManager)
         {
             if (userManager.FindByNameAsync("Admin").Result==null)
             {
-                var user = new IdentityUser()
+                var user = new AppUser()
                 {
                     UserName = "Admin",
                     Email = "Admin@localhost"

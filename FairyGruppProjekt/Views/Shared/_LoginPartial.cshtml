@@ -1,15 +1,22 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 
 
 
 <ul class="navbar-nav">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
+                   
 @if (SignInManager.IsSignedIn(User))
 {
-    
+                @if (User.IsInRole("Admin"))
+
+                { 
+                    <li class="nav-item">
+                        <a asp-area="Identity" asp-page="/Role/Create">Admin Panel</a>
+                    </li>
+                }
     <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
