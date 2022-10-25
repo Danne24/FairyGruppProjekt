@@ -1,0 +1,61 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create New Product</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+          <input type="hidden" asp-for="ProductId" /> 
+            <div asp-validation-summary="All" class="Success"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageThumbnailUrl" class="control-label"></label>
+                 <span asp-validation-for="ImageThumbnailUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsOnSale" class="control-label"></label>
+                <input asp-for="IsOnSale" class="form-control" />
+                <span asp-validation-for="IsOnSale" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsInStock" class="control-label"></label>
+                <input asp-for="IsInStock" class="form-control" />
+                <span asp-validation-for="IsInStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn-dark"/>
+            </div>
+
+        </form>
+    </div>
+</div>
