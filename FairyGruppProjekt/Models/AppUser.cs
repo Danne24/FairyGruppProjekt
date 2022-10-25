@@ -4,6 +4,6 @@ namespace FairyGruppProjekt.Models
 {
     public class AppUser:IdentityUser
     {
-
+        
     }
 }

@@ -34,7 +34,6 @@ namespace FairyGruppProjekt.Models.Repositories
         public void CreateNewProduct(Product product)
         {
             _context.Products.Add(product);
-            _context.SaveChanges();
         }
 
         public void DeleteProduct(int id)
@@ -59,6 +58,10 @@ namespace FairyGruppProjekt.Models.Repositories
         public async Task SaveAsync()
         {
            await _context.SaveChangesAsync();
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 

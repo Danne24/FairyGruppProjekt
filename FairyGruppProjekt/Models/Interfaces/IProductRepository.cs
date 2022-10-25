@@ -13,6 +13,7 @@
         void CreateNewProduct (Product product);
 
         public Task SaveAsync();
+        public void Save();
 
     }
 }
