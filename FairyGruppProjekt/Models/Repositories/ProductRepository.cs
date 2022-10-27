@@ -31,9 +31,39 @@ namespace FairyGruppProjekt.Models.Repositories
 
         }
 
+        public void CreateNewProduct(Product product)
+        {
+            
+            _context.Products.Add(product);
+            _context.SaveChanges();
+        }
+
+        public void DeleteProduct(int id)
+        {
+            var productToDelete = _context.Products.Find(id);
+            _context.Products.Remove(productToDelete);
+            _context.SaveChanges();
+            
+        }
+
+        public void EditProduct(Product product)
+        {
+            _context.Entry(product).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
         public Product GetProductById(int productId)
         {
             return _context.Products.FirstOrDefault(p => p.ProductId == productId);
+        }
+
+        public async Task SaveAsync()
+        {
+           await _context.SaveChangesAsync();
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 

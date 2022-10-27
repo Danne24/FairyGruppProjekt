@@ -1,6 +1,8 @@
 ﻿using FairyGruppProjekt.Data;
 using FairyGruppProjekt.Models.Interfaces;
+
 using Microsoft.CodeAnalysis;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -43,12 +45,18 @@ namespace FairyGruppProjekt.Models.Repositories
             _appDbContext.SaveChanges();
         }
 
-        //public int GetStatistic()
-        //{
-        //    var orders = _appDbContext.Orders.Include(o => o.OrderDetails).Where(o => o.OrderPlaced == DateTime.Today).Count();
 
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return _appDbContext.Orders.Include(o => o.OrderDetails).ToList();
+        }
 
-        //    return orders;
-        //}
+        public OrderDetail GetById(int id)
+        {
+            var orderDetail = _appDbContext.OrderDetails.Include(o => o.Order).FirstOrDefault(o => o.OrderId == id);
+            
+            return orderDetail;
+        }
+
     }
 }

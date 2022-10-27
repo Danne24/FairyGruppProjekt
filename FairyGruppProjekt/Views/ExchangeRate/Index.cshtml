@@ -1,0 +1,27 @@
+﻿@model ExchangesRate
+
+@{
+    ViewData["Title"] = "Exchange values";
+}
+<h1 class="bg-info text-white">Exchange</h1>
+
+<table class="table table-sm table-bordered table-bordered">
+    <tr><th>Currency</th><th>Usd i krona</th></tr>
+
+
+        <tr>
+         <td>basecode: @Model.base_code</td>
+
+        <td>Krona värd i USD: @Model.conversion_rates.USD</td>
+       <td> <select class="form-control" id="ChangeCurrency" name="Change Currency">
+            <option>SEK</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+            <option>JPY</option>
+            <option>CNY</option>
+            </select>
+        </td>
+        </tr>
+
+</table>
