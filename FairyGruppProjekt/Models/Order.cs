@@ -43,6 +43,6 @@ namespace FairyGruppProjekt.Models
         [BindNever]
         public DateTime OrderPlaced { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<OrderDetail>? OrderDetails { get; set; }
     }
 }
