@@ -107,7 +107,7 @@ namespace FairyGruppProjekt.Controllers
 
             return View(orders);
 
-
+        }
 
         //DELETE PRODUCT VIEW
         public ActionResult Delete(int id)
