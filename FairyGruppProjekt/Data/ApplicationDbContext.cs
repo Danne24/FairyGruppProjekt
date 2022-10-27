@@ -20,18 +20,20 @@ namespace FairyGruppProjekt.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
-       
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Borr & Diamanter" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Kontor & Väntrum" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 3, CategoryName = "Hygien & Rengöring" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Blekning & Tandvård"});
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Sprutor & Kanyler" });
+
 
 
             modelBuilder.Entity<Product>().HasData(new Product

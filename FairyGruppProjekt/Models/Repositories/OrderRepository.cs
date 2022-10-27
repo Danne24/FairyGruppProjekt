@@ -3,6 +3,7 @@ using FairyGruppProjekt.Models.Interfaces;
 
 using Microsoft.CodeAnalysis;
 
+
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -22,7 +23,7 @@ namespace FairyGruppProjekt.Models.Repositories
 
         public void CreateOrder(Order order)
         {
-            order.OrderPlaced = DateTime.Now;
+            order.OrderPlaced = DateTime.Today;
             order.OrderTotal = _shoppingCart.GetShoppingCartTotal();
             _appDbContext.Orders.Add(order);
             _appDbContext.SaveChanges();
@@ -46,6 +47,30 @@ namespace FairyGruppProjekt.Models.Repositories
         }
 
 
+        public IEnumerable<Order> GetAllOrdersForDashboard
+        {
+            get
+            {
+                return _appDbContext.Orders.Include(o => o.OrderDetails);
+            }
+        }
+
+        public IEnumerable<Order> GetStatistic
+        {
+            get
+            {
+                return _appDbContext.Orders.Include(o => o.OrderDetails).Where(o => o.OrderPlaced == DateTime.Today);
+            }
+        }
+
+        //public int GetStatistic()
+        //{
+        //    var orders = _appDbContext.Orders.Include(o => o.OrderDetails).Where(o => o.OrderPlaced == DateTime.Today).Count();
+
+        //    return orders;
+        //}
+
+
         public IEnumerable<Order> GetAllOrders()
         {
             return _appDbContext.Orders.Include(o => o.OrderDetails).ToList();
@@ -57,6 +82,7 @@ namespace FairyGruppProjekt.Models.Repositories
             
             return orderDetail;
         }
+
 
     }
 }
