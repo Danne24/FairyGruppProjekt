@@ -6,14 +6,15 @@ using System.Data;
 
 namespace FairyGruppProjekt.Controllers
 {
-    
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private readonly IProductRepository _productRepository;
-
-        public AdminController(IProductRepository productRepository)
+        private readonly IOrderRepository _orderRepository;
+        public AdminController(IProductRepository productRepository, IOrderRepository orderRepository)
         {
             _productRepository = productRepository;
+            _orderRepository = orderRepository;
         }
 
         public IActionResult Index()
@@ -23,12 +24,13 @@ namespace FairyGruppProjekt.Controllers
         }
 
 
-        
+        //CREATE PRODUCT VIEW
         public IActionResult Create() => View();
 
-
+        //CREATE PRODUCT ACTION
         [HttpPost]
-        public async Task<IActionResult> Create(Product product)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name, Description, Price, IsOnSale, IsInStock, Price, CategoryId")]Product product)
         {
 
             if (ModelState.IsValid)
@@ -51,6 +53,7 @@ namespace FairyGruppProjekt.Controllers
 
 
 
+        //EDIT PRODUCT VIEW
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -58,6 +61,7 @@ namespace FairyGruppProjekt.Controllers
             return View(product);
         }
 
+        //EDIT PRODUCT ACTION
         [HttpPost]
         public IActionResult Edit(Product product)
         {
@@ -76,6 +80,41 @@ namespace FairyGruppProjekt.Controllers
 
             }
             return View(product);
+        }
+
+
+
+        //DELETE PRODUCT VIEW
+        public ActionResult Delete(int id)
+        {
+
+            Product customer = _productRepository.GetProductById(id);
+
+            return View(customer);
+        }
+
+        //DELETE PRODUCT ACTION
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirm(int id)
+        {
+            _productRepository.DeleteProduct(id);
+            _productRepository.Save();
+            return RedirectToAction("Index");
+        }
+
+
+        //GET ALL ORDERS
+        public IActionResult OrderList()
+        {
+            var orderList = _orderRepository.GetAllOrders();
+            return View(orderList);
+        }
+
+        public IActionResult GetOrderDetails(int id)
+        {
+            var orderDetails = _orderRepository.GetById(id);
+            return View(orderDetails);
         }
     }
 }

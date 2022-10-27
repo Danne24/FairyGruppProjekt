@@ -10,7 +10,7 @@
 
         void DeleteProduct(int id);
         void EditProduct(Product product);
-        void CreateNewProduct (Product product);
+        public void CreateNewProduct (Product product);
 
         public Task SaveAsync();
         public void Save();
