@@ -62,7 +62,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-SeedData.Seed();
+
 
 app.MapControllerRoute(
     name: "default",
