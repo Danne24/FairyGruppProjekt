@@ -24,7 +24,7 @@ namespace FairyGruppProjekt.Controllers
             if (string.IsNullOrEmpty(category))
             {
                 products = _productRepository.GetAllProducts.OrderBy(p => p.ProductId);
-                currentCategory = "All Products";
+                currentCategory = "Products";
             }
             else
             {

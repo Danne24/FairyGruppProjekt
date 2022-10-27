@@ -1,5 +1,8 @@
 ﻿using FairyGruppProjekt.Data;
 using FairyGruppProjekt.Models.Interfaces;
+
+using Microsoft.CodeAnalysis;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -42,6 +45,7 @@ namespace FairyGruppProjekt.Models.Repositories
             _appDbContext.SaveChanges();
         }
 
+
         public IEnumerable<Order> GetAllOrders()
         {
             return _appDbContext.Orders.Include(o => o.OrderDetails).ToList();
@@ -53,5 +57,6 @@ namespace FairyGruppProjekt.Models.Repositories
             
             return orderDetail;
         }
+
     }
 }
