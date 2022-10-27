@@ -1,22 +1,23 @@
 ﻿@model Product
 
 
-<div class="col-sm-4 col-lg-4 col-md-4">
+<div class="col-sm-2 col-lg-2 col-md-2">
     <div class="thumbnail">
         <img src="@Model.ImageThumbnailUrl" alt="Image for Product" />
 
         <div class="caption">
-            <h3 class="pull-right">@Model.Price.ToString("c")</h3>
             <h3><a asp-controller="Product" asp-action="Details" asp-route-id="@Model.ProductId">@Model.Name</a></h3>
-            <p>@Model.Description</p>
         </div>
 
         <div class="addToCart">
+
+            <h4>@Model.Price.ToString("c")</h4>
+
             <p class="button">
-                <a class="btn btn-primary"
+                <a
                    asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
-                   asp-route-ProductId="@Model.ProductId">Add To Cart</a>
+                   asp-route-ProductId="@Model.ProductId"><i class="fa-solid fa-bag-shopping"></i></a>
             </p>
         </div>
 

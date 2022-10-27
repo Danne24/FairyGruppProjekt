@@ -4,8 +4,14 @@
     {
         void CreateOrder(Order order);
 
+
         IEnumerable<Order> GetAllOrdersForDashboard { get; }
         IEnumerable<Order> GetStatistic { get; }
        // public int GetStatistic(); 
+
+        IEnumerable<Order> GetAllOrders();
+        OrderDetail GetById(int id);
+
+
     }
 }

@@ -33,7 +33,9 @@ namespace FairyGruppProjekt.Models.Repositories
 
         public void CreateNewProduct(Product product)
         {
+            
             _context.Products.Add(product);
+            _context.SaveChanges();
         }
 
         public void DeleteProduct(int id)
