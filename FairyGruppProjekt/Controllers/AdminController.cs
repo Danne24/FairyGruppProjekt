@@ -1,6 +1,7 @@
 ﻿using FairyGruppProjekt.Models;
 using FairyGruppProjekt.Models.Interfaces;
 using FairyGruppProjekt.Models.Repositories;
+
 using FairyGruppProjekt.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,11 @@ namespace FairyGruppProjekt.Controllers
 
         public IActionResult Index()
         {
+            
+            return View();
+        }
+        public IActionResult ManageProducts()
+        {
             var products = _productRepository.GetAllProducts.ToList();
             return View(products);
         }
@@ -35,7 +41,6 @@ namespace FairyGruppProjekt.Controllers
             };
             return View(adminViewModel);
         }
-
 
         //CREATE PRODUCT VIEW
 
@@ -145,10 +150,11 @@ namespace FairyGruppProjekt.Controllers
             return View(orderList);
         }
 
-        public IActionResult GetOrderDetails(int id)
+        public IActionResult OrderDetails(int id)
         {
-            var orderDetails = _orderRepository.GetById(id);
-            return View(orderDetails);
+            var order = _orderRepository.GetOrderById(id);
+
+            return View(order);
 
         }
     }
