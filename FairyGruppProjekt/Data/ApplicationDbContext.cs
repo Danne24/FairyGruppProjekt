@@ -19,7 +19,7 @@ namespace FairyGruppProjekt.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-       
+        public DbSet<AppUser> AppUsers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,7 +29,7 @@ namespace FairyGruppProjekt.Data
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Chocolate Product" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Fruit Product" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 3, CategoryName = "Gummy Product" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Halloween Product"});
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Halloween Product" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Hard Product" });
 
 

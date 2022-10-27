@@ -6,14 +6,16 @@ using System.Data;
 
 namespace FairyGruppProjekt.Controllers
 {
-    
+
     public class AdminController : Controller
     {
         private readonly IProductRepository _productRepository;
+        private readonly IOrderRepository _orderRepository;
 
-        public AdminController(IProductRepository productRepository)
+        public AdminController(IProductRepository productRepository, IOrderRepository orderRepository)
         {
             _productRepository = productRepository;
+            _orderRepository = orderRepository;
         }
 
         public IActionResult Index()
@@ -23,7 +25,7 @@ namespace FairyGruppProjekt.Controllers
         }
 
 
-        
+
         public IActionResult Create() => View();
 
 
@@ -33,13 +35,13 @@ namespace FairyGruppProjekt.Controllers
 
             if (ModelState.IsValid)
             {
-                
-                    _productRepository.CreateNewProduct(product);
-                    await _productRepository.SaveAsync();
 
-                    TempData["Success"] = "The book was successfully added!";
-                
-               
+                _productRepository.CreateNewProduct(product);
+                await _productRepository.SaveAsync();
+
+                TempData["Success"] = "The book was successfully added!";
+
+
             }
             else
             {
@@ -47,7 +49,7 @@ namespace FairyGruppProjekt.Controllers
             }
 
             return RedirectToAction("Index");
-        }  
+        }
 
 
 
@@ -76,6 +78,26 @@ namespace FairyGruppProjekt.Controllers
 
             }
             return View(product);
+        }
+
+        //[HttpGet]
+        //public IActionResult Dashboard()
+        //{
+        //    IEnumerable<Order> orders;
+
+        //    orders = _orderRepository.GetAllOrdersForDashboard.OrderBy(o => o.OrderId);
+
+        //    return View(orders);
+        //}
+
+        [HttpGet]
+        public IActionResult Dashboard()
+        {
+            IEnumerable<Order> orders;
+
+            orders = _orderRepository.GetAllOrdersForDashboard.OrderBy(o => o.OrderId);
+
+            return View(orders);
         }
     }
 }
