@@ -4,7 +4,7 @@
 
 namespace FairyGruppProjekt.Migrations
 {
-    public partial class ServerSwitch : Migration
+    public partial class mergeAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

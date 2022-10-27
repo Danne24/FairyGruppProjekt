@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221021115421_AdminRole")]
-    partial class AdminRole
+    [Migration("20221027084144_mergeAdded")]
+    partial class mergeAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,27 +44,27 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CategoryName = "Chocolate Product"
+                            CategoryName = "Borr & Diamanter"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CategoryName = "Fruit Product"
+                            CategoryName = "Kontor & Väntrum"
                         },
                         new
                         {
                             CategoryId = 3,
-                            CategoryName = "Gummy Product"
+                            CategoryName = "Hygien & Rengöring"
                         },
                         new
                         {
                             CategoryId = 4,
-                            CategoryName = "Halloween Product"
+                            CategoryName = "Blekning & Tandvård"
                         },
                         new
                         {
                             CategoryId = 5,
-                            CategoryName = "Hard Product"
+                            CategoryName = "Sprutor & Kanyler"
                         });
                 });
 
@@ -164,11 +164,9 @@ namespace FairyGruppProjekt.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageThumbnailUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsInStock")
@@ -197,12 +195,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\chocolateProduct-small.jpg",
-                            ImageUrl = "\\Images\\chocolateProduct.jpg",
+                            ImageThumbnailUrl = "\\images2\\borr.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Assorted Chocolate Product",
-                            Price = 4.95m
+                            Name = "Borr hårdmetall",
+                            Price = 79.90m
                         },
                         new
                         {
@@ -210,12 +207,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 1,
                             Description = "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\chocolateProduct2-small.jpg",
-                            ImageUrl = "\\Images\\chocolateProduct2.jpg",
+                            ImageThumbnailUrl = "\\images2\\borr2.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Another Assorted Chocolate Product",
-                            Price = 3.95m
+                            Name = "Borr hårdmetall",
+                            Price = 89.50m
                         },
                         new
                         {
@@ -223,25 +219,23 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 1,
                             Description = "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\chocolateProduct3-small.jpg",
-                            ImageUrl = "\\Images\\chocolateProduct3.jpg",
+                            ImageThumbnailUrl = "\\images2\\borr3.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Another Chocolate Product",
-                            Price = 5.75m
+                            Name = "Borr hårdmetall",
+                            Price = 145.50m
                         },
                         new
                         {
                             ProductId = 4,
                             Amount = 0,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             Description = "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\fruitProduct-small.jpg",
-                            ImageUrl = "\\Images\\fruitProduct.jpg",
+                            ImageThumbnailUrl = "\\images2\\borr4.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Assorted Fruit Product",
-                            Price = 3.95m
+                            Name = "Borr hårdmetall",
+                            Price = 79.50m
                         },
                         new
                         {
@@ -249,12 +243,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 2,
                             Description = "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\fruitProduct2-small.jpg",
-                            ImageUrl = "\\Images\\fruitProduct2.jpg",
+                            ImageThumbnailUrl = "\\images2\\kaffe.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Fruit Product",
-                            Price = 7.00m
+                            Name = "Classic kaffe brygg",
+                            Price = 49.50m
                         },
                         new
                         {
@@ -262,25 +255,23 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\fruitProduct3-small.jpg",
-                            ImageUrl = "\\Images\\fruitProduct3.jpg",
+                            ImageThumbnailUrl = "\\images2\\kaffe2.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Another Assorted Fruit Product",
-                            Price = 11.25m
+                            Name = "Kaffe Nescafé",
+                            Price = 35.50m
                         },
                         new
                         {
                             ProductId = 7,
                             Amount = 0,
-                            CategoryId = 3,
+                            CategoryId = 2,
                             Description = "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\gummyProduct-small.jpg",
-                            ImageUrl = "\\Images\\gummyProduct.jpg",
+                            ImageThumbnailUrl = "\\images2\\te.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Assorted Gummy Product",
-                            Price = 3.95m
+                            Name = "Tepåsar 100st",
+                            Price = 49.50m
                         },
                         new
                         {
@@ -288,12 +279,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 3,
                             Description = "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\gummyProduct2-small.jpg",
-                            ImageUrl = "\\Images\\gummyProduct2.jpg",
+                            ImageThumbnailUrl = "\\images2\\ytdes.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Another Assorted Gummy Product",
-                            Price = 1.95m
+                            Name = "Ytdesinfektion",
+                            Price = 99.90m
                         },
                         new
                         {
@@ -301,25 +291,23 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 3,
                             Description = "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\gummyProduct3-small.jpg",
-                            ImageUrl = "\\Images\\gummyProduct3.jpg",
+                            ImageThumbnailUrl = "\\images2\\ytdes2.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Gummy Product",
-                            Price = 13.95m
+                            Name = "Ytdesinfektion",
+                            Price = 79.90m
                         },
                         new
                         {
                             ProductId = 10,
                             Amount = 0,
-                            CategoryId = 4,
+                            CategoryId = 3,
                             Description = "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\halloweenProduct-small.jpg",
-                            ImageUrl = "\\Images\\halloweenProduct.jpg",
+                            ImageThumbnailUrl = "\\images2\\des.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Halloween Product",
-                            Price = 1.95m
+                            Name = "Handdesinfektion",
+                            Price = 35m
                         },
                         new
                         {
@@ -327,11 +315,10 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 4,
                             Description = "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\halloweenProduct2-small.jpg",
-                            ImageUrl = "\\Images\\halloweenProduct2.jpg",
+                            ImageThumbnailUrl = "\\images2\\tandb.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Assorted Halloween Product",
+                            Name = "Tandborste Gum Junior",
                             Price = 12.95m
                         },
                         new
@@ -340,51 +327,251 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 4,
                             Description = "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\halloweenProduct3-small.jpg",
-                            ImageUrl = "\\Images\\halloweenProduct3.jpg",
+                            ImageThumbnailUrl = "\\images2\\blekning.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Another Halloween Product",
-                            Price = 21.95m
+                            Name = "Brilliant smile Kit",
+                            Price = 599m
                         },
                         new
                         {
                             ProductId = 13,
                             Amount = 0,
-                            CategoryId = 5,
+                            CategoryId = 4,
                             Description = "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\hardProduct-small.jpg",
-                            ImageUrl = "\\Images\\hardProduct.jpg",
+                            ImageThumbnailUrl = "\\images2\\blekning2.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Hard Product",
-                            Price = 6.95m
+                            Name = "Brilliant smile",
+                            Price = 499m
                         },
                         new
                         {
                             ProductId = 14,
                             Amount = 0,
-                            CategoryId = 5,
+                            CategoryId = 4,
                             Description = "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\hardProduct2-small.jpg",
-                            ImageUrl = "\\Images\\hardProduct2.jpg",
+                            ImageThumbnailUrl = "\\images2\\blek3.jpg",
                             IsInStock = true,
                             IsOnSale = true,
-                            Name = "Another Hard Product",
-                            Price = 2.95m
+                            Name = "Perfect Bleach",
+                            Price = 4995m
                         },
                         new
                         {
                             ProductId = 15,
                             Amount = 0,
-                            CategoryId = 5,
+                            CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
-                            ImageThumbnailUrl = "\\Images\\thumbnails\\hardProduct3-small.jpg",
-                            ImageUrl = "\\Images\\hardProduct3.jpg",
+                            ImageThumbnailUrl = "\\images2\\colgate.jpg",
                             IsInStock = true,
                             IsOnSale = false,
-                            Name = "Best Hard Product",
+                            Name = "Colgate tandborste",
+                            Price = 10.90m
+                        },
+                        new
+                        {
+                            ProductId = 16,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\colgate2.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Colgate Smiles 0-2år",
+                            Price = 12.50m
+                        },
+                        new
+                        {
+                            ProductId = 17,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\colgate3.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Colgate Smiles 2-6år",
+                            Price = 12.50m
+                        },
+                        new
+                        {
+                            ProductId = 18,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\colgate4.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Colgate Tandkräm",
+                            Price = 12.50m
+                        },
+                        new
+                        {
+                            ProductId = 19,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\colgate5.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Colgate Kids 0-5år",
+                            Price = 12.50m
+                        },
+                        new
+                        {
+                            ProductId = 20,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\colgate6.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Colgate Smiles 6+",
+                            Price = 12.50m
+                        },
+                        new
+                        {
+                            ProductId = 21,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\flux.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Flux Junior Munskölj",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            ProductId = 22,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\flux2.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Flux Munskölj",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            ProductId = 23,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\flux3.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Flux Munskölj Granate/Mint",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            ProductId = 24,
+                            Amount = 0,
+                            CategoryId = 4,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\bamse.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Tandkräm Bamse",
                             Price = 16.95m
+                        },
+                        new
+                        {
+                            ProductId = 25,
+                            Amount = 0,
+                            CategoryId = 5,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\spruta3.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Aspiject Spruta",
+                            Price = 95m
+                        },
+                        new
+                        {
+                            ProductId = 26,
+                            Amount = 0,
+                            CategoryId = 5,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\spruta4.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Dentsply Sirona Irrigation Needle",
+                            Price = 75m
+                        },
+                        new
+                        {
+                            ProductId = 27,
+                            Amount = 0,
+                            CategoryId = 5,
+                            Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
+                            ImageThumbnailUrl = "\\images2\\spruta5.jpg",
+                            IsInStock = true,
+                            IsOnSale = false,
+                            Name = "Endo spolkanyl",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            ProductId = 28,
+                            Amount = 0,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\kollegie.jpg",
+                            IsInStock = true,
+                            IsOnSale = true,
+                            Name = "Kollegieblock Linjerat A4",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            ProductId = 29,
+                            Amount = 0,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\papper.jpg",
+                            IsInStock = true,
+                            IsOnSale = true,
+                            Name = "Kopieringspapper 500st",
+                            Price = 100m
+                        },
+                        new
+                        {
+                            ProductId = 30,
+                            Amount = 0,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\penna.jpg",
+                            IsInStock = true,
+                            IsOnSale = true,
+                            Name = "Stiftpenna 12st",
+                            Price = 35m
+                        },
+                        new
+                        {
+                            ProductId = 31,
+                            Amount = 0,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\postit.jpg",
+                            IsInStock = true,
+                            IsOnSale = true,
+                            Name = "Postit Neonkub",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            ProductId = 32,
+                            Amount = 0,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\pärm.jpg",
+                            IsInStock = true,
+                            IsOnSale = true,
+                            Name = "Gaffelpärm Blå A4",
+                            Price = 35m
                         });
                 });
 
@@ -477,6 +664,10 @@ namespace FairyGruppProjekt.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -528,6 +719,8 @@ namespace FairyGruppProjekt.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -613,6 +806,13 @@ namespace FairyGruppProjekt.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("FairyGruppProjekt.Models.AppUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("AppUser");
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.OrderDetail", b =>

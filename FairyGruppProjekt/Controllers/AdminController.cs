@@ -1,5 +1,7 @@
 ﻿using FairyGruppProjekt.Models;
 using FairyGruppProjekt.Models.Interfaces;
+using FairyGruppProjekt.Models.Repositories;
+using FairyGruppProjekt.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -25,7 +27,14 @@ namespace FairyGruppProjekt.Controllers
             var products = _productRepository.GetAllProducts.ToList();
             return View(products);
         }
-
+        public IActionResult Index2()
+        {
+            var adminViewModel = new AdminViewModel
+            {
+               
+            };
+            return View(adminViewModel);
+        }
 
 
         //CREATE PRODUCT VIEW
