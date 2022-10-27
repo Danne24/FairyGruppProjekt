@@ -5,7 +5,7 @@ namespace FairyGruppProjekt.ViewModels
     public class OrderViewModel
     {
         
-        public List<Product> Products { get; set; }
+        public List<Order> Orders { get; set; }
 
     }
 }
