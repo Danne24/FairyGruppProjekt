@@ -1,4 +1,5 @@
 ﻿using FairyGruppProjekt.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,7 +27,6 @@ namespace FairyGruppProjekt.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
 
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Borr & Diamanter" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Kontor & Väntrum" });
@@ -392,6 +392,10 @@ namespace FairyGruppProjekt.Data
                 IsOnSale = true
             });
 
-        }
+
+        
+
+    }
+
     }
 }

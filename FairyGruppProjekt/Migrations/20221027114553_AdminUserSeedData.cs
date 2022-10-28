@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FairyGruppProjekt.Migrations
 {
-    public partial class Test : Migration
+    public partial class AdminUserSeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -265,6 +265,16 @@ namespace FairyGruppProjekt.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "c7f60d29-1f83-4ec8-95f7-3a82f082e9e6", "Admin", "ADMINISTRATOR" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "5fc5ccc4-81ed-460e-a93c-d58031a405cb", "AppUser", null, false, false, null, null, "MYUSER", "AQAAAAEAACcQAAAAEDd9K3cRBtId9xmbo99tsv4iQ/MF2caZwPbfMkh2FFVQRpjVVBrxnAonUC6qyq7N+w==", null, false, "db6442a8-a5cb-4d7e-baa5-2c07876f4716", false, "Admin" });
+
+            migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "CategoryId", "CategoryName" },
                 values: new object[,]
@@ -275,6 +285,11 @@ namespace FairyGruppProjekt.Migrations
                     { 4, "Blekning & Tandvård" },
                     { 5, "Sprutor & Kanyler" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "8e445865-a24d-4543-a6c6-9443d048cdb9" });
 
             migrationBuilder.InsertData(
                 table: "Products",

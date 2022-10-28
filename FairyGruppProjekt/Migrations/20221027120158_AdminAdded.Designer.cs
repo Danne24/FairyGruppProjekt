@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027084144_mergeAdded")]
-    partial class mergeAdded
+    [Migration("20221027120158_AdminAdded")]
+    partial class AdminAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -625,6 +625,15 @@ namespace FairyGruppProjekt.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
+                            ConcurrencyStamp = "5873ae8c-7bac-4e8c-bf1f-7986a880763e",
+                            Name = "Admin",
+                            NormalizedName = "ADMINISTRATOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -785,6 +794,13 @@ namespace FairyGruppProjekt.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            RoleId = "2c5e174e-3b0e-446f-86af-483d56fd7210"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -813,6 +829,23 @@ namespace FairyGruppProjekt.Migrations
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.HasDiscriminator().HasValue("AppUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "464cab84-7ec6-412c-8a6e-70d1da31bb7f",
+                            Email = "Admin@localhost",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "MYUSER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMpQdENehhuQl4pEaHtnyu6f83G06tFBvxLsToABy9rjcLG+HAjMlF4R6TwLf8jaTg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "8c956bcc-3361-41e6-a426-88a99622a239",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.OrderDetail", b =>

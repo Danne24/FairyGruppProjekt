@@ -4,6 +4,7 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221027114553_AdminUserSeedData")]
+    partial class AdminUserSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -628,7 +630,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "5873ae8c-7bac-4e8c-bf1f-7986a880763e",
+                            ConcurrencyStamp = "c7f60d29-1f83-4ec8-95f7-3a82f082e9e6",
                             Name = "Admin",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -833,14 +835,13 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "464cab84-7ec6-412c-8a6e-70d1da31bb7f",
-                            Email = "Admin@localhost",
-                            EmailConfirmed = true,
+                            ConcurrencyStamp = "5fc5ccc4-81ed-460e-a93c-d58031a405cb",
+                            EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "MYUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMpQdENehhuQl4pEaHtnyu6f83G06tFBvxLsToABy9rjcLG+HAjMlF4R6TwLf8jaTg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDd9K3cRBtId9xmbo99tsv4iQ/MF2caZwPbfMkh2FFVQRpjVVBrxnAonUC6qyq7N+w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8c956bcc-3361-41e6-a426-88a99622a239",
+                            SecurityStamp = "db6442a8-a5cb-4d7e-baa5-2c07876f4716",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
