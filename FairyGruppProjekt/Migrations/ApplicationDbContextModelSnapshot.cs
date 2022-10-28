@@ -42,37 +42,27 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             CategoryId = 1,
-
                             CategoryName = "Borr & Diamanter"
-
                         },
                         new
                         {
                             CategoryId = 2,
-
                             CategoryName = "Kontor & Väntrum"
-
                         },
                         new
                         {
                             CategoryId = 3,
-
                             CategoryName = "Hygien & Rengöring"
-
                         },
                         new
                         {
                             CategoryId = 4,
-
                             CategoryName = "Blekning & Tandvård"
-
                         },
                         new
                         {
                             CategoryId = 5,
-
                             CategoryName = "Sprutor & Kanyler"
-
                         });
                 });
 
@@ -172,7 +162,6 @@ namespace FairyGruppProjekt.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageThumbnailUrl")
-
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
@@ -204,13 +193,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.",
-
                             ImageThumbnailUrl = "\\images2\\borr.jpg",
                             IsInStock = true,
                             IsOnSale = false,
                             Name = "Borr hårdmetall",
                             Price = 79.90m
-
                         },
                         new
                         {
@@ -218,13 +205,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 1,
                             Description = "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
-
                             ImageThumbnailUrl = "\\images2\\borr2.jpg",
                             IsInStock = true,
                             IsOnSale = true,
                             Name = "Borr hårdmetall",
                             Price = 89.50m
-
                         },
                         new
                         {
@@ -232,19 +217,16 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 1,
                             Description = "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.",
-
                             ImageThumbnailUrl = "\\images2\\borr3.jpg",
                             IsInStock = true,
                             IsOnSale = false,
                             Name = "Borr hårdmetall",
                             Price = 145.50m
-
                         },
                         new
                         {
                             ProductId = 4,
                             Amount = 0,
-
                             CategoryId = 1,
                             Description = "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.",
                             ImageThumbnailUrl = "\\images2\\borr4.jpg",
@@ -252,7 +234,6 @@ namespace FairyGruppProjekt.Migrations
                             IsOnSale = false,
                             Name = "Borr hårdmetall",
                             Price = 79.50m
-
                         },
                         new
                         {
@@ -260,13 +241,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 2,
                             Description = "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.",
-
                             ImageThumbnailUrl = "\\images2\\kaffe.jpg",
                             IsInStock = true,
                             IsOnSale = true,
                             Name = "Classic kaffe brygg",
                             Price = 49.50m
-
                         },
                         new
                         {
@@ -274,19 +253,16 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-
                             ImageThumbnailUrl = "\\images2\\kaffe2.jpg",
                             IsInStock = true,
                             IsOnSale = true,
                             Name = "Kaffe Nescafé",
                             Price = 35.50m
-
                         },
                         new
                         {
                             ProductId = 7,
                             Amount = 0,
-
                             CategoryId = 2,
                             Description = "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.",
                             ImageThumbnailUrl = "\\images2\\te.jpg",
@@ -294,7 +270,6 @@ namespace FairyGruppProjekt.Migrations
                             IsOnSale = true,
                             Name = "Tepåsar 100st",
                             Price = 49.50m
-
                         },
                         new
                         {
@@ -302,13 +277,11 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 3,
                             Description = "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.",
-
                             ImageThumbnailUrl = "\\images2\\ytdes.jpg",
                             IsInStock = true,
                             IsOnSale = false,
                             Name = "Ytdesinfektion",
                             Price = 99.90m
-
                         },
                         new
                         {
@@ -316,19 +289,16 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 3,
                             Description = "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.",
-
                             ImageThumbnailUrl = "\\images2\\ytdes2.jpg",
                             IsInStock = true,
                             IsOnSale = false,
                             Name = "Ytdesinfektion",
                             Price = 79.90m
-
                         },
                         new
                         {
                             ProductId = 10,
                             Amount = 0,
-
                             CategoryId = 3,
                             Description = "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.",
                             ImageThumbnailUrl = "\\images2\\des.jpg",
@@ -336,7 +306,6 @@ namespace FairyGruppProjekt.Migrations
                             IsOnSale = true,
                             Name = "Handdesinfektion",
                             Price = 35m
-
                         },
                         new
                         {
@@ -344,12 +313,10 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 4,
                             Description = "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.",
-
                             ImageThumbnailUrl = "\\images2\\tandb.jpg",
                             IsInStock = true,
                             IsOnSale = true,
                             Name = "Tandborste Gum Junior",
-
                             Price = 12.95m
                         },
                         new
@@ -358,19 +325,16 @@ namespace FairyGruppProjekt.Migrations
                             Amount = 0,
                             CategoryId = 4,
                             Description = "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.",
-
                             ImageThumbnailUrl = "\\images2\\blekning.jpg",
                             IsInStock = true,
                             IsOnSale = true,
                             Name = "Brilliant smile Kit",
                             Price = 599m
-
                         },
                         new
                         {
                             ProductId = 13,
                             Amount = 0,
-
                             CategoryId = 4,
                             Description = "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.",
                             ImageThumbnailUrl = "\\images2\\blekning2.jpg",
@@ -378,13 +342,11 @@ namespace FairyGruppProjekt.Migrations
                             IsOnSale = false,
                             Name = "Brilliant smile",
                             Price = 499m
-
                         },
                         new
                         {
                             ProductId = 14,
                             Amount = 0,
-
                             CategoryId = 4,
                             Description = "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.",
                             ImageThumbnailUrl = "\\images2\\blek3.jpg",
@@ -392,13 +354,11 @@ namespace FairyGruppProjekt.Migrations
                             IsOnSale = true,
                             Name = "Perfect Bleach",
                             Price = 4995m
-
                         },
                         new
                         {
                             ProductId = 15,
                             Amount = 0,
-
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate.jpg",
@@ -610,7 +570,6 @@ namespace FairyGruppProjekt.Migrations
                             IsOnSale = true,
                             Name = "Gaffelpärm Blå A4",
                             Price = 35m
-
                         });
                 });
 
@@ -664,6 +623,22 @@ namespace FairyGruppProjekt.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "fab4fac1-c546-41de-aebc-a14da6895711",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
+                            ConcurrencyStamp = "2",
+                            Name = "HR",
+                            NormalizedName = "Human Resource"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -703,7 +678,9 @@ namespace FairyGruppProjekt.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -757,7 +734,7 @@ namespace FairyGruppProjekt.Migrations
 
                     b.ToTable("AspNetUsers", (string)null);
 
-
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -822,6 +799,13 @@ namespace FairyGruppProjekt.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "b74ddd14-6340-4840-95c2-db12554843e5",
+                            RoleId = "fab4fac1-c546-41de-aebc-a14da6895711"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -845,7 +829,30 @@ namespace FairyGruppProjekt.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("FairyGruppProjekt.Models.AppUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.HasDiscriminator().HasValue("AppUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "b74ddd14-6340-4840-95c2-db12554843e5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "19747ff7-abd6-4f9c-a1b8-b2128cd9e7ff",
+                            Email = "admin@random.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@RANDOM.COM",
+                            NormalizedUserName = "ADMIN@RANDOM.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJVYXnAKHazoSIhsXjoZREgzuW+P4CEAKlF4uwE5l0KpZQ/Vw4vfEcidNwb/7/zyZQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c7aacdbe-6f89-466d-8839-3bc89df199c5",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@random.com"
+                        });
+                });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.OrderDetail", b =>
                 {

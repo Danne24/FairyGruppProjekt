@@ -6,21 +6,22 @@
 <h1 class="bg-info text-white">Exchange</h1>
 
 <table class="table table-sm table-bordered table-bordered">
-    <tr><th>Currency</th><th>Usd i krona</th></tr>
+    <tr><th>Currency</th><th></th></tr>
 
 
         <tr>
          <td>basecode: @Model.base_code</td>
 
-        <td>Krona värd i USD: @Model.conversion_rates.USD</td>
-       <td> <select class="form-control" id="ChangeCurrency" name="Change Currency">
-            <option>SEK</option>
-            <option>USD</option>
-            <option>EUR</option>
-            <option>GBP</option>
-            <option>JPY</option>
-            <option>CNY</option>
+       <td>
+            <select class="form-control">
+                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.SEK>SEK</option>
+                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.USD>USD</option>
+                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.EUR>EUR</option>
+                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.GBP>GBP</option>
+                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.JPY>JPY</option>
+                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.CNY>CNY</option>
             </select>
+            
         </td>
         </tr>
 

@@ -1,4 +1,6 @@
-﻿using FairyGruppProjekt.Models;
+﻿using FairyGruppProjekt.Controllers;
+using FairyGruppProjekt.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,6 +29,7 @@ namespace FairyGruppProjekt.Data
         {
             base.OnModelCreating(modelBuilder);
 
+           
 
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Borr & Diamanter" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Kontor & Väntrum" });
@@ -391,7 +394,57 @@ namespace FairyGruppProjekt.Data
                 IsInStock = true,
                 IsOnSale = true
             });
+            //modelBuilder.Entity<AppUser>().HasData( new AppUser
+            //{
+            //    Id = "1b5cc502-5edd-4838-ba6e-83469a10fc03",
+            //    UserName = "Admin",
+            //    Email = "admin@admin.com",
+            //    LockoutEnabled = false,
+
+            //});
+            this.SeedUsers(modelBuilder);
+            this.SeedRoles(modelBuilder);
+            this.SeedUserRoles(modelBuilder);
+
+
+
+
 
         }
+        private void SeedUsers(ModelBuilder builder)
+        {
+            AppUser appuser = new AppUser()
+            {
+                Id = "b74ddd14-6340-4840-95c2-db12554843e5",
+                UserName = "admin@random.com",
+                Email = "admin@random.com",
+                LockoutEnabled = false,
+                NormalizedEmail = "ADMIN@RANDOM.COM",
+                NormalizedUserName = "ADMIN@RANDOM.COM",
+
+            };
+
+            PasswordHasher<AppUser> passwordHasher = new PasswordHasher<AppUser>();
+            appuser.PasswordHash = passwordHasher.HashPassword(appuser, "Admin*123");
+
+            builder.Entity<AppUser>().HasData(appuser);
+        }
+
+        private void SeedRoles(ModelBuilder builder)
+        {
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole() { Id = "fab4fac1-c546-41de-aebc-a14da6895711", Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
+                new IdentityRole() { Id = "c7b013f0-5201-4317-abd8-c211f91b7330", Name = "HR", ConcurrencyStamp = "2", NormalizedName = "Human Resource" }
+                );
+        }
+
+        private void SeedUserRoles(ModelBuilder builder)
+        {
+            builder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string>() { RoleId = "fab4fac1-c546-41de-aebc-a14da6895711", UserId = "b74ddd14-6340-4840-95c2-db12554843e5" }
+                );
+        }
     }
+
+
 }
