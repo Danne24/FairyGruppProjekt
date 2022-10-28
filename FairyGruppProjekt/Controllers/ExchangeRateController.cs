@@ -11,7 +11,7 @@ namespace FairyGruppProjekt.Controllers
 {
     public class ExchangeRateController : Controller
     {
-
+       
        
         public IActionResult Index()
         {
@@ -22,8 +22,11 @@ namespace FairyGruppProjekt.Controllers
                 return View(ExObj);
             }
         }
-        
-
+        public IActionResult UpdateCurrency(ExchangesRate ExObj)
+        {
+           
+            return View();
+        }
 
     }
     

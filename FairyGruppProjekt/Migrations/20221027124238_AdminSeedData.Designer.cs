@@ -4,6 +4,7 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221027124238_AdminSeedData")]
+    partial class AdminSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -833,7 +835,6 @@ namespace FairyGruppProjekt.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-
                     b.HasDiscriminator().HasValue("AppUser");
 
                     b.HasData(
@@ -853,7 +854,6 @@ namespace FairyGruppProjekt.Migrations
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
-
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.OrderDetail", b =>
