@@ -45,7 +45,8 @@ namespace FairyGruppProjekt.Data
                 IsInStock = true,
                 IsOnSale = false,
                 Price = 79.90M,
-                CategoryId = 1
+                CategoryId = 1,
+                Amount = 20
 
             });
 
@@ -58,7 +59,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 1,
                 ImageThumbnailUrl = "\\images2\\borr2.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 100
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -69,7 +71,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 1,
                 ImageThumbnailUrl = "\\images2\\borr3.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 30,
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -80,7 +83,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 1,
                 ImageThumbnailUrl = "\\images2\\borr4.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 8
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -91,7 +95,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\kaffe.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 10
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -102,7 +107,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\kaffe2.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 150
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -113,7 +119,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\te.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -124,7 +131,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 3,
                 ImageThumbnailUrl = "\\images2\\ytdes.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 80
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -135,7 +143,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 3,
                 ImageThumbnailUrl = "\\images2\\ytdes2.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 100
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -146,7 +155,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 3,
                 ImageThumbnailUrl = "\\images2\\des.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 120
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -157,7 +167,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\tandb.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 30
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -168,7 +179,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\blekning.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -179,7 +191,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\blekning2.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 50
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -190,7 +203,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\blek3.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 45
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -201,7 +215,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 13
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -212,7 +227,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate2.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -223,7 +239,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate3.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 25
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -234,7 +251,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate4.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 90
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -245,7 +263,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate5.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 80
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -256,7 +275,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate6.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 70
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -267,7 +287,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\flux.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 100
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -278,7 +299,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\flux2.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 95
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -289,7 +311,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\flux3.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 70
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -300,7 +323,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\bamse.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 50
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -311,7 +335,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 5,
                 ImageThumbnailUrl = "\\images2\\spruta3.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 25
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -322,7 +347,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 5,
                 ImageThumbnailUrl = "\\images2\\spruta4.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 25
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -333,7 +359,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 5,
                 ImageThumbnailUrl = "\\images2\\spruta5.jpg",
                 IsInStock = true,
-                IsOnSale = false
+                IsOnSale = false,
+                Amount = 30
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -345,7 +372,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\kollegie.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -356,7 +384,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\papper.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 50
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -367,7 +396,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\penna.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 10
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -378,7 +408,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\postit.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 70
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -389,7 +420,8 @@ namespace FairyGruppProjekt.Data
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\pärm.jpg",
                 IsInStock = true,
-                IsOnSale = true
+                IsOnSale = true,
+                Amount = 53
             });
 
         }

@@ -31,6 +31,14 @@ namespace FairyGruppProjekt.Models.Repositories
 
         }
 
+        //public IEnumerable<Product> GetProductsLowInStock
+        //{
+        //    get
+        //    {
+        //        return _context.Products.Where(p => p.Amount <= 5);
+        //    }
+        //}
+
         public void CreateNewProduct(Product product)
         {
             
@@ -65,6 +73,7 @@ namespace FairyGruppProjekt.Models.Repositories
         {
             _context.SaveChanges();
         }
+
     }
 
   
