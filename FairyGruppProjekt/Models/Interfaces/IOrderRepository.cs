@@ -10,7 +10,8 @@
        // public int GetStatistic(); 
 
         IEnumerable<Order> GetAllOrders();
-        OrderDetail GetById(int id);
+        Order GetOrderById(int id);
+        IEnumerable<OrderDetail> GetOrderDetails();
 
 
     }

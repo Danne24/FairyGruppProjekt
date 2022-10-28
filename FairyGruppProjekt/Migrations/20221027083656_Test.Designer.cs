@@ -4,6 +4,7 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221027083656_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -623,22 +625,6 @@ namespace FairyGruppProjekt.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "fab4fac1-c546-41de-aebc-a14da6895711",
-                            ConcurrencyStamp = "1",
-                            Name = "Admin",
-                            NormalizedName = "Admin"
-                        },
-                        new
-                        {
-                            Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
-                            ConcurrencyStamp = "2",
-                            Name = "HR",
-                            NormalizedName = "Human Resource"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -799,13 +785,6 @@ namespace FairyGruppProjekt.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "b74ddd14-6340-4840-95c2-db12554843e5",
-                            RoleId = "fab4fac1-c546-41de-aebc-a14da6895711"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -833,27 +812,7 @@ namespace FairyGruppProjekt.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-
                     b.HasDiscriminator().HasValue("AppUser");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "b74ddd14-6340-4840-95c2-db12554843e5",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "19747ff7-abd6-4f9c-a1b8-b2128cd9e7ff",
-                            Email = "admin@random.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@RANDOM.COM",
-                            NormalizedUserName = "ADMIN@RANDOM.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJVYXnAKHazoSIhsXjoZREgzuW+P4CEAKlF4uwE5l0KpZQ/Vw4vfEcidNwb/7/zyZQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "c7aacdbe-6f89-466d-8839-3bc89df199c5",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@random.com"
-                        });
-
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.OrderDetail", b =>

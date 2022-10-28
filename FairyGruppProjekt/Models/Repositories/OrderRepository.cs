@@ -76,13 +76,16 @@ namespace FairyGruppProjekt.Models.Repositories
             return _appDbContext.Orders.Include(o => o.OrderDetails).ToList();
         }
 
-        public OrderDetail GetById(int id)
+        public Order GetOrderById(int id)
         {
-            var orderDetail = _appDbContext.OrderDetails.Include(o => o.Order).FirstOrDefault(o => o.OrderId == id);
+            var orderDetail = _appDbContext.Orders.Include(o => o.OrderDetails).FirstOrDefault(o => o.OrderId == id);
             
             return orderDetail;
         }
 
-
+        public IEnumerable<OrderDetail> GetOrderDetails()
+        {
+            return _appDbContext.OrderDetails.ToList();
+        }
     }
 }
