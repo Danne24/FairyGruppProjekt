@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027084144_mergeAdded")]
-    partial class mergeAdded
+    [Migration("20221027115213_firstCreate")]
+    partial class firstCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

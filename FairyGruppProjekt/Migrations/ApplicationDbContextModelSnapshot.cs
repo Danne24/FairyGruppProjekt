@@ -190,7 +190,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 1,
-                            Amount = 0,
+                            Amount = 20,
                             CategoryId = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.",
                             ImageThumbnailUrl = "\\images2\\borr.jpg",
@@ -202,7 +202,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 2,
-                            Amount = 0,
+                            Amount = 100,
                             CategoryId = 1,
                             Description = "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
                             ImageThumbnailUrl = "\\images2\\borr2.jpg",
@@ -214,7 +214,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 3,
-                            Amount = 0,
+                            Amount = 30,
                             CategoryId = 1,
                             Description = "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.",
                             ImageThumbnailUrl = "\\images2\\borr3.jpg",
@@ -226,7 +226,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 4,
-                            Amount = 0,
+                            Amount = 8,
                             CategoryId = 1,
                             Description = "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.",
                             ImageThumbnailUrl = "\\images2\\borr4.jpg",
@@ -238,7 +238,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 5,
-                            Amount = 0,
+                            Amount = 10,
                             CategoryId = 2,
                             Description = "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.",
                             ImageThumbnailUrl = "\\images2\\kaffe.jpg",
@@ -250,7 +250,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 6,
-                            Amount = 0,
+                            Amount = 150,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\kaffe2.jpg",
@@ -262,7 +262,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 7,
-                            Amount = 0,
+                            Amount = 15,
                             CategoryId = 2,
                             Description = "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.",
                             ImageThumbnailUrl = "\\images2\\te.jpg",
@@ -274,7 +274,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 8,
-                            Amount = 0,
+                            Amount = 80,
                             CategoryId = 3,
                             Description = "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.",
                             ImageThumbnailUrl = "\\images2\\ytdes.jpg",
@@ -286,7 +286,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 9,
-                            Amount = 0,
+                            Amount = 100,
                             CategoryId = 3,
                             Description = "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.",
                             ImageThumbnailUrl = "\\images2\\ytdes2.jpg",
@@ -298,7 +298,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 10,
-                            Amount = 0,
+                            Amount = 120,
                             CategoryId = 3,
                             Description = "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.",
                             ImageThumbnailUrl = "\\images2\\des.jpg",
@@ -310,7 +310,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 11,
-                            Amount = 0,
+                            Amount = 30,
                             CategoryId = 4,
                             Description = "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.",
                             ImageThumbnailUrl = "\\images2\\tandb.jpg",
@@ -322,7 +322,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 12,
-                            Amount = 0,
+                            Amount = 15,
                             CategoryId = 4,
                             Description = "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.",
                             ImageThumbnailUrl = "\\images2\\blekning.jpg",
@@ -334,7 +334,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 13,
-                            Amount = 0,
+                            Amount = 50,
                             CategoryId = 4,
                             Description = "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.",
                             ImageThumbnailUrl = "\\images2\\blekning2.jpg",
@@ -346,7 +346,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 14,
-                            Amount = 0,
+                            Amount = 45,
                             CategoryId = 4,
                             Description = "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.",
                             ImageThumbnailUrl = "\\images2\\blek3.jpg",
@@ -358,7 +358,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 15,
-                            Amount = 0,
+                            Amount = 13,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate.jpg",
@@ -370,7 +370,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 16,
-                            Amount = 0,
+                            Amount = 15,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate2.jpg",
@@ -382,7 +382,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 17,
-                            Amount = 0,
+                            Amount = 25,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate3.jpg",
@@ -394,7 +394,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 18,
-                            Amount = 0,
+                            Amount = 90,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate4.jpg",
@@ -406,7 +406,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 19,
-                            Amount = 0,
+                            Amount = 80,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate5.jpg",
@@ -418,7 +418,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 20,
-                            Amount = 0,
+                            Amount = 70,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate6.jpg",
@@ -430,7 +430,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 21,
-                            Amount = 0,
+                            Amount = 100,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\flux.jpg",
@@ -442,7 +442,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 22,
-                            Amount = 0,
+                            Amount = 95,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\flux2.jpg",
@@ -454,7 +454,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 23,
-                            Amount = 0,
+                            Amount = 70,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\flux3.jpg",
@@ -466,7 +466,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 24,
-                            Amount = 0,
+                            Amount = 50,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\bamse.jpg",
@@ -478,7 +478,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 25,
-                            Amount = 0,
+                            Amount = 25,
                             CategoryId = 5,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\spruta3.jpg",
@@ -490,7 +490,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 26,
-                            Amount = 0,
+                            Amount = 25,
                             CategoryId = 5,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\spruta4.jpg",
@@ -502,7 +502,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 27,
-                            Amount = 0,
+                            Amount = 30,
                             CategoryId = 5,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\spruta5.jpg",
@@ -514,7 +514,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 28,
-                            Amount = 0,
+                            Amount = 15,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\kollegie.jpg",
@@ -526,7 +526,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 29,
-                            Amount = 0,
+                            Amount = 50,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\papper.jpg",
@@ -538,7 +538,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 30,
-                            Amount = 0,
+                            Amount = 10,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\penna.jpg",
@@ -550,7 +550,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 31,
-                            Amount = 0,
+                            Amount = 70,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\postit.jpg",
@@ -562,7 +562,7 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 32,
-                            Amount = 0,
+                            Amount = 53,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\pärm.jpg",

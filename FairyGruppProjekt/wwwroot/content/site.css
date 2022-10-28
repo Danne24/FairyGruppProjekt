@@ -1,7 +1,5 @@
 ﻿body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    background-image: url('/images2/background.jpg');
-    background-repeat: no-repeat;
     font-family: sans-serif;
 }
 
@@ -101,7 +99,12 @@ li {
 
 
 /*******************************/
-.about{
+
+.container-home {
+    background-image: url('/images2/background.jpg');
+    background-repeat: no-repeat;
+}
+.about {
     margin-top: 300px;
     margin-left: 50px;
 }
