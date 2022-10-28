@@ -1,1 +1,10 @@
-﻿
+﻿@model IEnumerable<OrderViewModel>
+
+    <h1>Details</h1>
+@foreach (var item in Model){
+    <p>
+        @Html.DisplayFor(ModelItem=> item.Orders)
+    </p>
+}
+
+

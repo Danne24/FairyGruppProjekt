@@ -1,5 +1,7 @@
+
 ﻿using FairyGruppProjekt.Controllers;
 using FairyGruppProjekt.Models;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +31,6 @@ namespace FairyGruppProjekt.Data
         {
             base.OnModelCreating(modelBuilder);
 
-           
 
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Borr & Diamanter" });
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Kontor & Väntrum" });
@@ -433,6 +434,7 @@ namespace FairyGruppProjekt.Data
             //    Email = "admin@admin.com",
             //    LockoutEnabled = false,
 
+
             //});
             this.SeedUsers(modelBuilder);
             this.SeedRoles(modelBuilder);
@@ -476,6 +478,7 @@ namespace FairyGruppProjekt.Data
                 new IdentityUserRole<string>() { RoleId = "fab4fac1-c546-41de-aebc-a14da6895711", UserId = "b74ddd14-6340-4840-95c2-db12554843e5" }
                 );
         }
+
     }
 
 
