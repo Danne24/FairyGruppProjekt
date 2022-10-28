@@ -33,13 +33,27 @@ namespace FairyGruppProjekt.Controllers
             var products = _productRepository.GetAllProducts.ToList();
             return View(products);
         }
+
+
+        public IActionResult Stock()
+        {
+            var lowInStock = _productRepository.GetAllProducts.Where(p => p.Amount <= 20);
+            return View(lowInStock);
+        }
         public IActionResult Index2()
         {
-            var adminViewModel = new AdminViewModel
+            IEnumerable<Product> products;
+            IEnumerable<Order> orders;
+
+            products = _productRepository.GetAllProducts.OrderBy(p => p.ProductId);
+            orders = _orderRepository.GetAllOrders();
+
+
+            return View(new AdminViewModel
             {
-               
-            };
-            return View(adminViewModel);
+                Products = products,
+                Orders = orders
+            });
         }
 
         //CREATE PRODUCT VIEW
