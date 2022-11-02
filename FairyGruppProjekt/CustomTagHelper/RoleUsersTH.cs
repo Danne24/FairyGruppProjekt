@@ -2,24 +2,24 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace FairyGruppProjekt.wwwroot.CustomTagHelper
+namespace FairyGruppProjekt.CustomTagHelper
 {
     [HtmlTargetElement("td", Attributes = "i-role")]
     public class RoleUsersTH : TagHelper
     {
         private UserManager<AppUser> userManager;
         private RoleManager<IdentityRole> roleManager;
-        
+
 
         public RoleUsersTH(UserManager<AppUser> usermgr, RoleManager<IdentityRole> rolemgr)
         {
             userManager = usermgr;
             roleManager = rolemgr;
         }
- 
+
         [HtmlAttributeName("i-role")]
         public string Role { get; set; }
- 
+
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             List<string> names = new List<string>();

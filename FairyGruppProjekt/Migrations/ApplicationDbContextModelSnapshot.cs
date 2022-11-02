@@ -627,7 +627,6 @@ namespace FairyGruppProjekt.Migrations
                     b.HasData(
                         new
                         {
-
                             Id = "fab4fac1-c546-41de-aebc-a14da6895711",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
@@ -639,7 +638,6 @@ namespace FairyGruppProjekt.Migrations
                             ConcurrencyStamp = "2",
                             Name = "HR",
                             NormalizedName = "Human Resource"
-
                         });
                 });
 
@@ -805,10 +803,8 @@ namespace FairyGruppProjekt.Migrations
                     b.HasData(
                         new
                         {
-
                             UserId = "b74ddd14-6340-4840-95c2-db12554843e5",
                             RoleId = "fab4fac1-c546-41de-aebc-a14da6895711"
-
                         });
                 });
 
@@ -837,29 +833,25 @@ namespace FairyGruppProjekt.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-
                     b.HasDiscriminator().HasValue("AppUser");
 
                     b.HasData(
                         new
                         {
-
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "19747ff7-abd6-4f9c-a1b8-b2128cd9e7ff",
+                            ConcurrencyStamp = "7bd6c602-878d-402b-bb83-1dbe13560354",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJVYXnAKHazoSIhsXjoZREgzuW+P4CEAKlF4uwE5l0KpZQ/Vw4vfEcidNwb/7/zyZQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJUWav2DD2fteZlhjjt6DEBV3xOwzb1gHc9zNeg3ntiM26C3PlWQmN3efb0AWKyBnA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c7aacdbe-6f89-466d-8839-3bc89df199c5",
+                            SecurityStamp = "bd2548f1-81da-40f7-a7a0-fa49452fb60f",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
-
-
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.OrderDetail", b =>

@@ -169,15 +169,18 @@ namespace FairyGruppProjekt.Controllers
             var order = _orderRepository.GetOrderById(id);
             if (order != null)
             {
-                var orderViewModel = new OrderViewModel()
-                {
-                    Orders = order.OrderDetails
-                };
-                return View(orderViewModel);
+               
+                return View(order);
             }
-            return RedirectToAction("Index");
+            return BadRequest("Error retrieving products from this order");
            
 
+        }
+
+
+        public ActionResult Distance()
+        {
+            return View();
         }
     }
 }
