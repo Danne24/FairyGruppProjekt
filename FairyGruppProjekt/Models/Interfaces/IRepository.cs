@@ -9,5 +9,6 @@
         void Add(T entity);
         void Save();
         Task SaveAsync();
+        
     }
 }

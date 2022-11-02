@@ -4,6 +4,7 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221102105754_latestBuild")]
+    partial class latestBuild
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -539,35 +541,13 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 32,
-                            AmountOfCopiesInStorage = 25,
+                            AmountOfCopiesInStorage = 53,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\fairy1.png",
-                            IsOnSale = false,
-                            Name = "Fairy Toy",
-                            Price = 70m
-                        },
-                        new
-                        {
-                            ProductId = 33,
-                            AmountOfCopiesInStorage = 10,
-                            CategoryId = 2,
-                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\blueWings.png",
+                            ImageThumbnailUrl = "\\images2\\pärm.jpg",
                             IsOnSale = true,
-                            Name = "Fairy Wings Blue",
-                            Price = 100m
-                        },
-                        new
-                        {
-                            ProductId = 34,
-                            AmountOfCopiesInStorage = 35,
-                            CategoryId = 2,
-                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\whiteWings.png",
-                            IsOnSale = true,
-                            Name = "Fairy Wings White",
-                            Price = 100m
+                            Name = "Folder Blue A4",
+                            Price = 35m
                         });
                 });
 
@@ -866,19 +846,15 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "dacdc503-6ab6-42b6-be0a-4044b5de700b",
-
+                            ConcurrencyStamp = "68631ac6-2584-4ce3-90aa-cca5f1e9aa9d",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-
-                            PasswordHash = "AQAAAAEAACcQAAAAEOW6LADd9KeQabqfjAlsWScXKFbJv/C3UNG/H4ATOzkNNHVHWy83/IvRFOqj05dBig==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHdh0bpG8G5WRxsToPpCYuw0tyTfXh1ct5gnLFuQUjhAIN+tXHv184rpDciFzSwHwg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "08c5a264-f995-4dcd-a649-e634ae3b4f66",
-
+                            SecurityStamp = "3dc289da-1bf4-41f1-b60d-47e5e087f2a7",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });

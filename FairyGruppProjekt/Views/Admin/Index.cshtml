@@ -1,5 +1,7 @@
 ﻿@model AdminViewModel
-
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
 
 
 <style>
@@ -176,7 +178,14 @@
                                             @Html.DisplayFor(modelItem => item.FirstName)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.OrderTotal)
+                                            @{
+                                                var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+
+                                                @(item.OrderTotal*ExValue.CurValue) @ExValue.CurName
+                                                
+                                                
+                                               
+                                            }
                                         </td>
                                         
                                     </tr>

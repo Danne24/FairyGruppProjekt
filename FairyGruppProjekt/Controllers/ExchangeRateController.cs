@@ -18,10 +18,8 @@ namespace FairyGruppProjekt.Controllers
         private UsedCurrency _usedCurrency;
         private readonly ApplicationDbContext _appDbContext;
 
-        public ExchangeRateController(ApplicationDbContext appDbContext, ExchangesRate Exobj, UsedCurrency usedCurrency)
+        public ExchangeRateController(ApplicationDbContext appDbContext)
         {
-            _Exobj = Exobj;
-            _usedCurrency = usedCurrency;
             _appDbContext = appDbContext;
         }
         public IActionResult Index()

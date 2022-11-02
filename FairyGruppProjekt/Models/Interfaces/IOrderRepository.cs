@@ -14,6 +14,5 @@
         IEnumerable<OrderDetail> GetOrderDetails();
         IEnumerable<Product> MostSoldProducts();
 
-
     }
 }
