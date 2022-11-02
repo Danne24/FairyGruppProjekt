@@ -34,6 +34,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.3.0.52" />
   </ItemGroup>
 
   <ItemGroup>

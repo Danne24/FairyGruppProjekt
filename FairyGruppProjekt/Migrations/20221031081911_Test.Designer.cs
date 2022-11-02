@@ -4,6 +4,7 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221031081911_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,14 +182,9 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("usedCurrencyTempKey")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("usedCurrencyTempKey");
 
                     b.ToTable("Products");
 
@@ -603,34 +600,6 @@ namespace FairyGruppProjekt.Migrations
                     b.ToTable("ShoppingCartItems");
                 });
 
-            modelBuilder.Entity("FairyGruppProjekt.Models.UsedCurrency", b =>
-                {
-                    b.Property<int>("TempKey")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TempKey"), 1L, 1);
-
-                    b.Property<string>("CurName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("CurValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("TempKey");
-
-                    b.ToTable("usedCurrencies");
-
-                    b.HasData(
-                        new
-                        {
-                            TempKey = 1,
-                            CurName = "SEK",
-                            CurValue = 1m
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -873,19 +842,15 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "d6566e4f-7ae4-4eeb-b038-5b76eb199d6e",
-
+                            ConcurrencyStamp = "7bd6c602-878d-402b-bb83-1dbe13560354",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-
-                            PasswordHash = "AQAAAAEAACcQAAAAEL4IFyCdyvAngQ5Q8jZGrP8IvA+lWqKDN+ZnCKyAKTmwCAN4HYofpxtQ2UAoKbNtCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJUWav2DD2fteZlhjjt6DEBV3xOwzb1gHc9zNeg3ntiM26C3PlWQmN3efb0AWKyBnA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f96777d-411e-40b4-a260-cee1f8b1e429",
-
+                            SecurityStamp = "bd2548f1-81da-40f7-a7a0-fa49452fb60f",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
@@ -918,13 +883,7 @@ namespace FairyGruppProjekt.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "usedCurrency")
-                        .WithMany()
-                        .HasForeignKey("usedCurrencyTempKey");
-
                     b.Navigation("Category");
-
-                    b.Navigation("usedCurrency");
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.ShoppingCartItem", b =>

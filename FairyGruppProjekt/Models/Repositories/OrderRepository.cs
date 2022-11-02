@@ -78,7 +78,7 @@ namespace FairyGruppProjekt.Models.Repositories
 
         public Order GetOrderById(int id)
         {
-            var orderDetail = _appDbContext.Orders.Include(o => o.OrderDetails).FirstOrDefault(o => o.OrderId == id);
+            var orderDetail = _appDbContext.Orders.Include(o => o.OrderDetails).ThenInclude(p=>p.Product).FirstOrDefault(o => o.OrderId == id);
             
             return orderDetail;
         }
