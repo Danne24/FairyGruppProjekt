@@ -131,13 +131,18 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Today´s sales</div>
-                        <div class="number">@orderTotalToday</div>
+                        @{
+                            var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+                           
+                            <div class="number">@(orderTotalToday*ExValue.CurValue) @ExValue.CurName</div>
+                        }
                     </div>
                     <i class='bx bx-cart cart two'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Past week´s orders</div>
+                         
                         <div class="number">@ordersPlacedPast7Days</div>
                     </div>
                     <i class='bx bx-cart-add cart three'></i>
@@ -146,7 +151,9 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Past week´s sales</div>
-                        <div class="number">@orderTotalPast7Days</div>
+                        @{
+                            <div class="number">@(orderTotalPast7Days*ExValue.CurValue) @ExValue.CurName</div>
+                        }
                     </div>
                     <i class='bx bxs-cart-download cart four'></i>
                 </div>
@@ -179,9 +186,9 @@
                                         </td>
                                         <td>
                                             @{
-                                                var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+                                                ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
 
-                                                @(item.OrderTotal*ExValue.CurValue) @ExValue.CurName
+                                                    @(item.OrderTotal*ExValue.CurValue) @ExValue.CurName
                                                 
                                                 
                                                
@@ -225,7 +232,7 @@
                                 <img src=@item.ImageThumbnailUrl />
                                 <span class="product">@item.Name </span>
                             </a>
-                            <span class="price">@item.Price</span>
+                                <span class="price">@(item.Price*ExValue.CurValue) @ExValue.CurName</span>
                         </li>
                         
                             i2++;

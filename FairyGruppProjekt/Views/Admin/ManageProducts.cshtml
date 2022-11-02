@@ -1,11 +1,16 @@
 ﻿@model IEnumerable<Product>
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
 
 <style>
     body {
         background-color: #f5f5f5;
     }
 </style>
-
+@{
+ var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+ }
 <div class="sidebar">
     <div class="logo-details">
         <i class='bx bx-user'></i>
@@ -97,7 +102,7 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                        @(item.Price * ExValue.CurValue) @ExValue.CurName
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ImageThumbnailUrl)

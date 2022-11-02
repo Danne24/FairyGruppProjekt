@@ -1,6 +1,12 @@
 ﻿@model Product
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
 
 
+@{
+                            var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+}
 <div class="col-sm-2 col-lg-2 col-md-2">
     <div class="thumbnail">
         <img src="@Model.ImageThumbnailUrl" alt="Image for Product" />
@@ -11,7 +17,7 @@
 
         <div class="addToCart">
 
-            <h4>@Model.Price.ToString("c")</h4>
+            <h4>@(Model.Price*ExValue.CurValue) @ExValue.CurName</h4>
 
             @if (Model.AmountOfCopiesInStorage > 0)
             {

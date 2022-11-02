@@ -82,6 +82,13 @@ namespace FairyGruppProjekt.Controllers
                     //_appDbContext.Entry(usedCurr).State = EntityState.Modified;
                     _appDbContext.SaveChanges();
                 }
+                if (Id == 6)
+                {
+                    usedCurr.CurName = "WST";
+                    usedCurr.CurValue = ExObj.conversion_rates.WST;
+                    //_appDbContext.Entry(usedCurr).State = EntityState.Modified;
+                    _appDbContext.SaveChanges();
+                }
 
 
                 return View(usedCurr);

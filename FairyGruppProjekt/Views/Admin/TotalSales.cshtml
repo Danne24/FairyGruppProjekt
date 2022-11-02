@@ -1,4 +1,7 @@
 ﻿@model AdminViewModel
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
 
 <style>
     body {
@@ -131,13 +134,18 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Sales past month</div>
-                        <div class="number">@orderTotalPast30Days</div>
+                        @{
+                            var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+
+                            <div class="number">@(orderTotalPast30Days*ExValue.CurValue) @ExValue.CurName</div>
+                        }
                     </div>
                     <i class='bx bx-cart cart two'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">All time orders</div>
+                        
                         <div class="number">@Model.Orders.Count()</div>
                     </div>
                     <i class='bx bxs-cart-add cart three'></i>
@@ -146,7 +154,7 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">All time sales</div>
-                        <div class="number">@orderTotalAllTime</div>
+                        <div class="number">@(orderTotalAllTime*ExValue.CurValue) @ExValue.CurName</div>
                     </div>
                     <i class='bx bxs-cart-download cart four'></i>
                 </div>

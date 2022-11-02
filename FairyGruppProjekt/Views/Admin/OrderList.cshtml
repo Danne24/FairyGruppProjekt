@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Order>
-
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
 <style>
     body {
         background-color: #f5f5f5;
@@ -103,6 +105,7 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model=>model.OrderTotal)
+                    
                 </th>
             </tr>
         </thead>
@@ -133,7 +136,12 @@
                         @Html.DisplayFor(modelItem => item.ExactDateOrderplaced)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.OrderTotal)
+                            @{
+                                var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+
+                                @(item.OrderTotal *ExValue.CurValue) @ExValue.CurName
+
+                            }
                     </td>
 
                     <td>
