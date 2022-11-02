@@ -1,7 +1,10 @@
 ﻿@model Order
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
+     @{var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);}
 
-    
-    <div class="container">
+<div class="container">
     <h1>Details</h1>
     <a asp-action="Index">Back To Index</a>
     <table class="table">
@@ -19,7 +22,7 @@
 
                 <tr>
                     <td>@Html.DisplayFor(ModelItem=>item.Product.Name)</td>
-                    <td>@Html.DisplayFor(ModelItem=> item.Price)</td>
+                    <td>@(item.Price * ExValue.CurValue) @ExValue.CurName</td>
                     <td>@Html.DisplayFor(ModelItem=>item.Amount)</td>
                 </tr>
             }

@@ -1,4 +1,11 @@
 ﻿@model ShoppingCartViewModel
+@using FairyGruppProjekt.Controllers
+@using FairyGruppProjekt.Data
+@inject ApplicationDbContext applicationDbContext
+
+@{
+    var ExValue = applicationDbContext.usedCurrencies.FirstOrDefault(c => c.TempKey == 1);
+}
 <section class="shopping-Cart-section">
 
 <table class="table table-bordered">
@@ -43,9 +50,9 @@
      
 
           
-                <td class="text-right">@item.Product.Price.ToString("c")</td>
+                    <td class="text-right">@(item.Product.Price*ExValue.CurValue) @ExValue.CurName</td>
                 <td class="text-right">
-                    @((item.Amount * item.Product.Price).ToString("c"))
+                        @(item.Amount * item.Product.Price * ExValue.CurValue) @ExValue.CurName
                 </td>
 
             </tr>
@@ -54,7 +61,7 @@
     <tfoot>
         <tr>
             <td colspan="4" class="text-right">Total:
-                @Model.ShoppingCartTotal
+                    @(Model.ShoppingCartTotal*ExValue.CurValue) @ExValue.CurName
             </td>
        
         </tr>
