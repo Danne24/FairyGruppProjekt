@@ -163,6 +163,9 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CurrencyTempKey")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -183,14 +186,11 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("usedCurrencyTempKey")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("usedCurrencyTempKey");
+                    b.HasIndex("CurrencyTempKey");
 
                     b.ToTable("Products");
 
@@ -539,13 +539,35 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 32,
-                            AmountOfCopiesInStorage = 53,
+                            AmountOfCopiesInStorage = 25,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\pärm.jpg",
+                            ImageThumbnailUrl = "\\images2\\fairy1.png",
+                            IsOnSale = false,
+                            Name = "Fairy Toy",
+                            Price = 70m
+                        },
+                        new
+                        {
+                            ProductId = 33,
+                            AmountOfCopiesInStorage = 10,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\blueWings.png",
                             IsOnSale = true,
-                            Name = "Folder Blue A4",
-                            Price = 35m
+                            Name = "Fairy Wings Blue",
+                            Price = 100m
+                        },
+                        new
+                        {
+                            ProductId = 34,
+                            AmountOfCopiesInStorage = 35,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\whiteWings.png",
+                            IsOnSale = true,
+                            Name = "Fairy Wings White",
+                            Price = 100m
                         });
                 });
 
@@ -844,19 +866,15 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "8b4a6140-aff4-4550-aa27-323143fa67ee",
-
+                            ConcurrencyStamp = "dacdc503-6ab6-42b6-be0a-4044b5de700b",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-
-                            PasswordHash = "AQAAAAEAACcQAAAAEJZpyYi+w1xmFNHcCoa7aSDq89A6Pk2veb9Z8bKi/z+k0+7d3eOhAi5gT+/RoQCWnA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOW6LADd9KeQabqfjAlsWScXKFbJv/C3UNG/H4ATOzkNNHVHWy83/IvRFOqj05dBig==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "624029b1-8b43-4609-b613-c09c94639ea6",
-
+                            SecurityStamp = "08c5a264-f995-4dcd-a649-e634ae3b4f66",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
@@ -889,13 +907,13 @@ namespace FairyGruppProjekt.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "usedCurrency")
+                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "Currency")
                         .WithMany()
-                        .HasForeignKey("usedCurrencyTempKey");
+                        .HasForeignKey("CurrencyTempKey");
 
                     b.Navigation("Category");
 
-                    b.Navigation("usedCurrency");
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.ShoppingCartItem", b =>

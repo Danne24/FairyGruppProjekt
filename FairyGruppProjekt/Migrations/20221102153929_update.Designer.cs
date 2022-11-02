@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221101122310_Price with currency")]
-    partial class Pricewithcurrency
+    [Migration("20221102153929_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,27 +44,27 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CategoryName = "Borr & Diamanter"
+                            CategoryName = "Dental drills"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CategoryName = "Kontor & Väntrum"
+                            CategoryName = "Office & Lounge"
                         },
                         new
                         {
                             CategoryId = 3,
-                            CategoryName = "Hygien & Rengöring"
+                            CategoryName = "Hygiene & Cleaning"
                         },
                         new
                         {
                             CategoryId = 4,
-                            CategoryName = "Blekning & Tandvård"
+                            CategoryName = "Whitening & Dental care"
                         },
                         new
                         {
                             CategoryId = 5,
-                            CategoryName = "Sprutor & Kanyler"
+                            CategoryName = "Syringes & Cannula"
                         });
                 });
 
@@ -85,6 +85,9 @@ namespace FairyGruppProjekt.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ExactDateOrderplaced")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -153,10 +156,16 @@ namespace FairyGruppProjekt.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
-                    b.Property<int>("Amount")
+                    b.Property<int>("AmountOfCopiesInStorage")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AmountOfCopiesSold")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CurrencyTempKey")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -169,9 +178,6 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsInStock")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsOnSale")
                         .HasColumnType("bit");
 
@@ -182,14 +188,11 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("usedCurrencyTempKey")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("usedCurrencyTempKey");
+                    b.HasIndex("CurrencyTempKey");
 
                     b.ToTable("Products");
 
@@ -197,167 +200,153 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 1,
-                            Amount = 20,
+                            AmountOfCopiesInStorage = 20,
                             CategoryId = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.",
                             ImageThumbnailUrl = "\\images2\\borr.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Borr hårdmetall",
+                            Name = "Dental drill metal 390/008",
                             Price = 79.90m
                         },
                         new
                         {
                             ProductId = 2,
-                            Amount = 100,
+                            AmountOfCopiesInStorage = 100,
                             CategoryId = 1,
                             Description = "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
                             ImageThumbnailUrl = "\\images2\\borr2.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Borr hårdmetall",
+                            Name = "Dental drill metal 180/012",
                             Price = 89.50m
                         },
                         new
                         {
                             ProductId = 3,
-                            Amount = 30,
+                            AmountOfCopiesInStorage = 30,
                             CategoryId = 1,
                             Description = "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.",
                             ImageThumbnailUrl = "\\images2\\borr3.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Borr hårdmetall",
+                            Name = "Dental drill metal 390/012",
                             Price = 145.50m
                         },
                         new
                         {
                             ProductId = 4,
-                            Amount = 8,
+                            AmountOfCopiesInStorage = 8,
                             CategoryId = 1,
                             Description = "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.",
                             ImageThumbnailUrl = "\\images2\\borr4.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Borr hårdmetall",
+                            Name = "Dental drill metal 010/012",
                             Price = 79.50m
                         },
                         new
                         {
                             ProductId = 5,
-                            Amount = 10,
+                            AmountOfCopiesInStorage = 10,
                             CategoryId = 2,
                             Description = "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.",
                             ImageThumbnailUrl = "\\images2\\kaffe.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Classic kaffe brygg",
+                            Name = "Classic brew coffe",
                             Price = 49.50m
                         },
                         new
                         {
                             ProductId = 6,
-                            Amount = 150,
+                            AmountOfCopiesInStorage = 150,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\kaffe2.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Kaffe Nescafé",
+                            Name = "Coffe Nescafé",
                             Price = 35.50m
                         },
                         new
                         {
                             ProductId = 7,
-                            Amount = 15,
+                            AmountOfCopiesInStorage = 15,
                             CategoryId = 2,
                             Description = "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.",
                             ImageThumbnailUrl = "\\images2\\te.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Tepåsar 100st",
+                            Name = "Tea, 100 Teabags",
                             Price = 49.50m
                         },
                         new
                         {
                             ProductId = 8,
-                            Amount = 80,
+                            AmountOfCopiesInStorage = 80,
                             CategoryId = 3,
                             Description = "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.",
                             ImageThumbnailUrl = "\\images2\\ytdes.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Ytdesinfektion",
+                            Name = "Surface disinfection",
                             Price = 99.90m
                         },
                         new
                         {
                             ProductId = 9,
-                            Amount = 100,
+                            AmountOfCopiesInStorage = 100,
                             CategoryId = 3,
                             Description = "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.",
                             ImageThumbnailUrl = "\\images2\\ytdes2.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Ytdesinfektion",
+                            Name = "Surface disinfection",
                             Price = 79.90m
                         },
                         new
                         {
                             ProductId = 10,
-                            Amount = 120,
+                            AmountOfCopiesInStorage = 120,
                             CategoryId = 3,
                             Description = "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.",
                             ImageThumbnailUrl = "\\images2\\des.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Handdesinfektion",
+                            Name = "Hand disinfection",
                             Price = 35m
                         },
                         new
                         {
                             ProductId = 11,
-                            Amount = 30,
+                            AmountOfCopiesInStorage = 30,
                             CategoryId = 4,
                             Description = "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.",
                             ImageThumbnailUrl = "\\images2\\tandb.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Tandborste Gum Junior",
+                            Name = "Toothbrush Gum Junior",
                             Price = 12.95m
                         },
                         new
                         {
                             ProductId = 12,
-                            Amount = 15,
+                            AmountOfCopiesInStorage = 15,
                             CategoryId = 4,
                             Description = "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.",
                             ImageThumbnailUrl = "\\images2\\blekning.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Brilliant smile Kit",
+                            Name = "Brilliant Smile Kit",
                             Price = 599m
                         },
                         new
                         {
                             ProductId = 13,
-                            Amount = 50,
+                            AmountOfCopiesInStorage = 50,
                             CategoryId = 4,
                             Description = "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.",
                             ImageThumbnailUrl = "\\images2\\blekning2.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Brilliant smile",
+                            Name = "Brilliant Smile",
                             Price = 499m
                         },
                         new
                         {
                             ProductId = 14,
-                            Amount = 45,
+                            AmountOfCopiesInStorage = 45,
                             CategoryId = 4,
                             Description = "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.",
                             ImageThumbnailUrl = "\\images2\\blek3.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
                             Name = "Perfect Bleach",
                             Price = 4995m
@@ -365,71 +354,65 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 15,
-                            Amount = 13,
+                            AmountOfCopiesInStorage = 13,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Colgate tandborste",
+                            Name = "Colgate toothbrush",
                             Price = 10.90m
                         },
                         new
                         {
                             ProductId = 16,
-                            Amount = 15,
+                            AmountOfCopiesInStorage = 15,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate2.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Colgate Smiles 0-2år",
+                            Name = "Colgate Smiles 0-2 years",
                             Price = 12.50m
                         },
                         new
                         {
                             ProductId = 17,
-                            Amount = 25,
+                            AmountOfCopiesInStorage = 25,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate3.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Colgate Smiles 2-6år",
+                            Name = "Colgate Smiles 2-6 years",
                             Price = 12.50m
                         },
                         new
                         {
                             ProductId = 18,
-                            Amount = 90,
+                            AmountOfCopiesInStorage = 90,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate4.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Colgate Tandkräm",
+                            Name = "Colgate Toothpaste",
                             Price = 12.50m
                         },
                         new
                         {
                             ProductId = 19,
-                            Amount = 80,
+                            AmountOfCopiesInStorage = 80,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate5.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Colgate Kids 0-5år",
+                            Name = "Colgate Kids 0-5 years",
                             Price = 12.50m
                         },
                         new
                         {
                             ProductId = 20,
-                            Amount = 70,
+                            AmountOfCopiesInStorage = 70,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\colgate6.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
                             Name = "Colgate Smiles 6+",
                             Price = 12.50m
@@ -437,71 +420,65 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 21,
-                            Amount = 100,
+                            AmountOfCopiesInStorage = 100,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\flux.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Flux Junior Munskölj",
+                            Name = "Flux Junior Mouthwash",
                             Price = 25m
                         },
                         new
                         {
                             ProductId = 22,
-                            Amount = 95,
+                            AmountOfCopiesInStorage = 95,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\flux2.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Flux Munskölj",
+                            Name = "Flux Mouthwash",
                             Price = 25m
                         },
                         new
                         {
                             ProductId = 23,
-                            Amount = 70,
+                            AmountOfCopiesInStorage = 70,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\flux3.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Flux Munskölj Granate/Mint",
+                            Name = "Flux Mouthwash Granate/Mint",
                             Price = 25m
                         },
                         new
                         {
                             ProductId = 24,
-                            Amount = 50,
+                            AmountOfCopiesInStorage = 50,
                             CategoryId = 4,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\bamse.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Tandkräm Bamse",
+                            Name = "Toothpaste Bamse",
                             Price = 16.95m
                         },
                         new
                         {
                             ProductId = 25,
-                            Amount = 25,
+                            AmountOfCopiesInStorage = 25,
                             CategoryId = 5,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\spruta3.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Aspiject Spruta",
+                            Name = "Aspiject Syringe",
                             Price = 95m
                         },
                         new
                         {
                             ProductId = 26,
-                            Amount = 25,
+                            AmountOfCopiesInStorage = 25,
                             CategoryId = 5,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\spruta4.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
                             Name = "Dentsply Sirona Irrigation Needle",
                             Price = 75m
@@ -509,74 +486,90 @@ namespace FairyGruppProjekt.Migrations
                         new
                         {
                             ProductId = 27,
-                            Amount = 30,
+                            AmountOfCopiesInStorage = 30,
                             CategoryId = 5,
                             Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                             ImageThumbnailUrl = "\\images2\\spruta5.jpg",
-                            IsInStock = true,
                             IsOnSale = false,
-                            Name = "Endo spolkanyl",
+                            Name = "Endo Cannula",
                             Price = 25m
                         },
                         new
                         {
                             ProductId = 28,
-                            Amount = 15,
+                            AmountOfCopiesInStorage = 15,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\kollegie.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Kollegieblock Linjerat A4",
+                            Name = "Collegiate block Lined A4",
                             Price = 25m
                         },
                         new
                         {
                             ProductId = 29,
-                            Amount = 50,
+                            AmountOfCopiesInStorage = 50,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\papper.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Kopieringspapper 500st",
+                            Name = "A4 paper, 500 bundle",
                             Price = 100m
                         },
                         new
                         {
                             ProductId = 30,
-                            Amount = 10,
+                            AmountOfCopiesInStorage = 10,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\penna.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Stiftpenna 12st",
+                            Name = "Ballpoint pen 12 bundle",
                             Price = 35m
                         },
                         new
                         {
                             ProductId = 31,
-                            Amount = 70,
+                            AmountOfCopiesInStorage = 70,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                             ImageThumbnailUrl = "\\images2\\postit.jpg",
-                            IsInStock = true,
                             IsOnSale = true,
-                            Name = "Postit Neonkub",
+                            Name = "Post-it notes",
                             Price = 25m
                         },
                         new
                         {
                             ProductId = 32,
-                            Amount = 53,
+                            AmountOfCopiesInStorage = 25,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\pärm.jpg",
-                            IsInStock = true,
+                            ImageThumbnailUrl = "\\images2\\fairy1.png",
+                            IsOnSale = false,
+                            Name = "Fairy Toy",
+                            Price = 70m
+                        },
+                        new
+                        {
+                            ProductId = 33,
+                            AmountOfCopiesInStorage = 10,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\blueWings.png",
                             IsOnSale = true,
-                            Name = "Gaffelpärm Blå A4",
-                            Price = 35m
+                            Name = "Fairy Wings Blue",
+                            Price = 100m
+                        },
+                        new
+                        {
+                            ProductId = 34,
+                            AmountOfCopiesInStorage = 35,
+                            CategoryId = 2,
+                            Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                            ImageThumbnailUrl = "\\images2\\whiteWings.png",
+                            IsOnSale = true,
+                            Name = "Fairy Wings White",
+                            Price = 100m
                         });
                 });
 
@@ -875,15 +868,15 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d6566e4f-7ae4-4eeb-b038-5b76eb199d6e",
+                            ConcurrencyStamp = "dacdc503-6ab6-42b6-be0a-4044b5de700b",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL4IFyCdyvAngQ5Q8jZGrP8IvA+lWqKDN+ZnCKyAKTmwCAN4HYofpxtQ2UAoKbNtCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOW6LADd9KeQabqfjAlsWScXKFbJv/C3UNG/H4ATOzkNNHVHWy83/IvRFOqj05dBig==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f96777d-411e-40b4-a260-cee1f8b1e429",
+                            SecurityStamp = "08c5a264-f995-4dcd-a649-e634ae3b4f66",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
@@ -916,13 +909,13 @@ namespace FairyGruppProjekt.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "usedCurrency")
+                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "Currency")
                         .WithMany()
-                        .HasForeignKey("usedCurrencyTempKey");
+                        .HasForeignKey("CurrencyTempKey");
 
                     b.Navigation("Category");
 
-                    b.Navigation("usedCurrency");
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.ShoppingCartItem", b =>

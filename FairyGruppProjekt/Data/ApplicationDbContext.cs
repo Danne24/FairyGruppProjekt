@@ -389,14 +389,37 @@ namespace FairyGruppProjekt.Data
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 32,
-                Name = "Folder Blue A4",
-                Price = 35M,
+                Name = "Fairy Toy",
+                Price = 70M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
-                ImageThumbnailUrl = "\\images2\\pärm.jpg",
-                IsOnSale = true,
-                AmountOfCopiesInStorage = 53
+                ImageThumbnailUrl = "\\images2\\fairy1.png",
+                IsOnSale = false,
+                AmountOfCopiesInStorage = 25
             });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                ProductId = 33,
+                Name = "Fairy Wings Blue",
+                Price = 100M,
+                Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                CategoryId = 2,
+                ImageThumbnailUrl = "\\images2\\blueWings.png",
+                IsOnSale = true,
+                AmountOfCopiesInStorage = 10
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                ProductId = 34,
+                Name = "Fairy Wings White",
+                Price = 100M,
+                Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
+                CategoryId = 2,
+                ImageThumbnailUrl = "\\images2\\whiteWings.png",
+                IsOnSale = true,
+                AmountOfCopiesInStorage = 35
+            });
+
             modelBuilder.Entity<UsedCurrency>().HasData(new UsedCurrency
             {
                 TempKey = 1,

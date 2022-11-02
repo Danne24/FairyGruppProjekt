@@ -11,9 +11,6 @@ namespace FairyGruppProjekt.Controllers
             return View();
         }
 
-        public IActionResult Team()
-        {
-            return View();
-        }
+      
     }
 }
