@@ -1,0 +1,165 @@
+﻿@model AdminViewModel
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+</style>
+
+
+@if (true)
+{
+    int ordersPlacedToday = 0;
+    int ordersPlacedPast7Days = 0;
+    int ordersPlacedPast30Days = 0;
+    decimal orderTotalToday = 0;
+    decimal orderTotalPast7Days = 0;
+    decimal orderTotalPast30Days = 0;
+    decimal orderTotalAllTime = 0;
+
+    @foreach (var order in Model.Orders)
+    {
+        if (order.OrderPlaced == DateTime.Today)
+        {
+            ordersPlacedToday++;
+            orderTotalToday += order.OrderTotal;
+        }
+
+        else if (order.OrderPlaced < DateTime.Today.Date.AddDays(1) && order.OrderPlaced > DateTime.Today.Date.AddDays(-8))
+        {
+            ordersPlacedPast7Days++;
+            orderTotalPast7Days += order.OrderTotal;
+        }
+
+        else if (order.OrderPlaced < DateTime.Today.Date.AddDays(-8) && order.OrderPlaced > DateTime.Today.Date.AddDays(-31))
+        {
+            ordersPlacedPast30Days++;
+            orderTotalPast30Days += order.OrderTotal;
+        }
+        else
+        {
+            orderTotalAllTime += order.OrderTotal;
+        }
+        
+    }
+
+    ordersPlacedPast7Days = ordersPlacedPast7Days + ordersPlacedToday;
+    ordersPlacedPast30Days = ordersPlacedPast30Days + ordersPlacedPast7Days;
+
+
+    orderTotalPast7Days += orderTotalToday;
+    orderTotalPast30Days += orderTotalPast7Days;
+    orderTotalAllTime += orderTotalPast30Days;
+
+    
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-user'></i>
+            <span class="logo_name">ToothFairy</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a asp-action="Index">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a
+               asp-action="ManageProducts">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Product</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin"
+               asp-action="OrderList">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Order list</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin"
+               asp-action="Stock">
+                    <i class='bx bx-coin-stack'></i>
+                    <span class="links_name">Stock</span>
+                </a>
+            </li>
+            <li>
+                <a class="active">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="links_name">Total sales</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Team</span>
+                </a>
+            </li>
+           @* <li>
+                <a href="#">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Favrorites</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+            </li>*@
+        </ul>
+    </div>
+    <section class="home-section">
+
+        <div class="home-content">
+            <div class="overview-boxes">
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Orders past month</div>
+                        <div class="number">@ordersPlacedPast30Days</div>
+                    </div>
+                    <i class='bx bx-cart-alt cart'></i>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Sales past month</div>
+                        <div class="number">@orderTotalPast30Days</div>
+                    </div>
+                    <i class='bx bx-cart cart two'></i>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">All time orders</div>
+                        <div class="number">@Model.Orders.Count()</div>
+                    </div>
+                    <i class='bx bxs-cart-add cart three'></i>
+                </div>
+                
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">All time sales</div>
+                        <div class="number">@orderTotalAllTime</div>
+                    </div>
+                    <i class='bx bxs-cart-download cart four'></i>
+                </div>
+             </div>
+            </div>
+
+
+
+
+
+
+
+
+
+</section>
+}

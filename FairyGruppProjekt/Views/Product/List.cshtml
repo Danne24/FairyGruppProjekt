@@ -1,9 +1,11 @@
 ﻿@model ProductListViewModel
 
+<div class="container-products">
 
-
-          <h2>@Model.CurrentCategory</h2>
-        @foreach (var product in Model.Products)
-        {
-           <partial name="_Productcard" model="product" />
-        }
+    <h1 class="section-header">@Model.CurrentCategory</h1>
+    <hr />
+    @foreach (var product in Model.Products)
+    {
+        <partial name="_Productcard" model="product" />
+    }
+</div>

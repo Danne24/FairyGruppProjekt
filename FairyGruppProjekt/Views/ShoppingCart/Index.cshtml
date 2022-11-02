@@ -1,4 +1,5 @@
 ﻿@model ShoppingCartViewModel
+<section class="shopping-Cart-section">
 
 <table class="table table-bordered">
     <thead>
@@ -13,21 +14,34 @@
         @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
         {
             <tr>
-
-     
-
-               <td><img src=@item.Product.ImageThumbnailUrl />
+                <td>
+                    <img src=@item.Product.ImageThumbnailUrl />
                     @item.Product.Name
                 </td>
-           
 
+                @if (item.Product.AmountOfCopiesInStorage > item.Amount)
+                {
+                    <td class="text-left">
+                        <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="removefromshoppingcart" asp-route-productid="@item.Product.ProductId">-</a>
+                        @item.Amount
+                        <a class="btn btn-primary" asp-controller="shoppingcart" asp-action="addtoshoppingcart" asp-route-productid=@item.Product.ProductId>+</a>
+                    </td>
 
-                <td class="text-left">
-                    <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="removefromshoppingcart" asp-route-productid="@item.Product.ProductId">-</a>
-                    @item.Amount
-                    <a class="btn btn-primary" asp-controller="shoppingcart" asp-action="addtoshoppingcart" asp-route-productid=@item.Product.ProductId>+</a>
-                </td>
-             
+                }
+
+                else if (item.Product.AmountOfCopiesInStorage <= item.Amount)
+                {
+                    <td>
+                        <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="removefromshoppingcart" asp-route-productid="@item.Product.ProductId">-</a>
+                        @item.Amount
+                        <p>We only have @item.Amount copies avaliable in stock</p>
+                    </td>
+                   
+
+                }
+     
+
+          
                 <td class="text-right">@item.Product.Price.ToString("c")</td>
                 <td class="text-right">
                     @((item.Amount * item.Product.Price).ToString("c"))
@@ -50,3 +64,4 @@
     <a class="btn btn-primary" asp-controller="Order" asp-action="CheckOut">Checkout</a>
 </div>
 
+</section>

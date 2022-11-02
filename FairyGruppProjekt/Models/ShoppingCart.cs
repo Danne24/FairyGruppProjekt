@@ -27,7 +27,6 @@ namespace FairyGruppProjekt.Models
             return new ShoppingCart(context) { ShoppingCartID = cartId };
         }
 
-
         public void AddToCart(Product product, int amount)
         {
             var ShoppingCartItem = _appDbContext.ShoppingCartItems.SingleOrDefault(c => c.Product.ProductId == product.ProductId

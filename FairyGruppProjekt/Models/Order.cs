@@ -42,6 +42,7 @@ namespace FairyGruppProjekt.Models
         public decimal OrderTotal { get; set; }
         [BindNever]
         public DateTime OrderPlaced { get; set; }
+        public DateTime? ExactDateOrderplaced { get; set; }
 
         public List<OrderDetail>? OrderDetails { get; set; }
     }

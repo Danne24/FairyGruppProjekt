@@ -1,70 +1,34 @@
 ﻿@model HomeViewModel
 
+<style>
+    body {
+         background-image: url("../images2/background.jpg");
+    }
+</style>
+
 <div class=container-home>
     <div class="about">
-        <h1 class="h1Home">Tandvårdsprodukter</h1>
-        <h1 class="h1Home">för kliniker & salonger</h1>
+        <h1 class="h1Home">Dental products</h1>
+        <h1 class="h1Home">for clinics & salons</h1>
 
-        <h4>Vi säljer alla tillbehör för just din klinik/salong</h4>
-        <h4>Våra produkter är både kvalitétssäkra och framtagna enligt riktlinjer.</h4>
+        <h4>We sell all sorts accessories for your dental clinic</h4>
+        <h4>Our prodcts are both quality assured and developed according to market guidlines.</h4>
 
     </div>
 
     <div class="content-button">
             <div>
 
-           @* <p class="buttonFrontPage">
-                <a asp-controller="Product" asp-action="List"></a>
-                <span class="spanButton">VÅRT SORTIMENT</span>
-            </p>*@
-          
+            <a class="buttonFrontPage" asp-controller="Product" asp-action="List" type="button">
+                    <span class="spanButton"></span>OUR INVENTORY
 
-
-               
-                <button class="buttonFrontPage" type="button">
-                    <span class="spanButton"></span>VÅRT SORTIMENT
-
-                </button>
-             
-
-             @*   <a class="buttonFrontPage" asp-controller="Product" asp-action="List">
-                    <span class="spanButton">sortiment</span>
-
-                </a>
-             
-
-
-
-
-              <a asp-action="Product" class="buttonFrontPage" type="button"><span class="spanButton"></span>Vårt sortiment</a>*@
-
-       
-
-
-
-
-
-
-
-
+            </a>
 
            </div>
     </div>
 </div>
 
 
-
-<div class="About-us-content">
-    <div class="about-us">
-        <h1 class="h1Home2">TOOTHFAIRY</h1>
-
-        <h4>Vi är ett snabbt växande företag som arbetar 
-            tillsammans med tanläkare och läkare för att ta fram de bästa produkterna.</h4>
-        <h4>Vi har över 10 års erfarenhet i branschen.</h4>
-
-    </div>
-    
-</div>
 
 
 

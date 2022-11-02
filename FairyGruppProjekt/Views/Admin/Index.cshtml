@@ -1,21 +1,254 @@
-﻿@model IEnumerable<Product>
+﻿@model AdminViewModel
 
-@{
-    ViewData["Title"] = "Index";
+
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+</style>
+
+
+
+
+@if (true)
+{
+    int ordersPlacedToday = 0;
+    int ordersPlacedPast7Days = 0;
+    int ordersPlacedPast30Days = 0;
+    decimal orderTotalToday = 0;
+    decimal orderTotalPast7Days = 0;
+    decimal orderTotalPast30Days = 0;
+    var i = 0;
+    var i2 = 0;
+    @foreach (var order in Model.Orders)
+    {
+        if (order.OrderPlaced == DateTime.Today)
+        {
+            ordersPlacedToday++;
+            orderTotalToday += order.OrderTotal;
+        }
+
+        else if (order.OrderPlaced < DateTime.Today.Date.AddDays(1) && order.OrderPlaced > DateTime.Today.Date.AddDays(-8))
+        {
+            ordersPlacedPast7Days++;
+            orderTotalPast7Days += order.OrderTotal;
+        }
+
+        else if (order.OrderPlaced < DateTime.Today.Date.AddDays(-8) && order.OrderPlaced > DateTime.Today.Date.AddDays(-31))
+        {
+            ordersPlacedPast30Days++;
+            orderTotalPast30Days += order.OrderTotal;
+        }
+    }
+
+    ordersPlacedPast7Days = ordersPlacedPast7Days + ordersPlacedToday;
+    ordersPlacedPast30Days = ordersPlacedPast30Days + ordersPlacedPast7Days;
+
+    orderTotalPast7Days += orderTotalToday;
+    orderTotalPast30Days += orderTotalPast7Days;
+
+
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-user'></i>
+            <span class="logo_name">ToothFairy</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a
+               asp-action="ManageProducts">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Product</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin"
+               asp-action="OrderList">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Order list</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin"
+               asp-action="Stock">
+                    <i class='bx bx-coin-stack'></i>
+                    <span class="links_name">Stock</span>
+                </a>
+            </li>
+            <li>
+                <a asp-action="TotalSales">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="links_name">Total sales</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Contact" asp-action="Team">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Team</span>
+                </a>
+            </li>
+           @* <li>
+                <a href="#">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Favrorites</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+            </li>*@
+        </ul>
+    </div>
+    <section class="home-section">
+      
+
+        <div class="home-content">
+            <div class="overview-boxes">
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Today´s orders</div>
+                        <div class="number">@ordersPlacedToday</div>
+                    </div>
+                    <i class='bx bx-cart-alt cart'></i>
+                </div>
+
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Today´s sales</div>
+                        <div class="number">@orderTotalToday</div>
+                    </div>
+                    <i class='bx bx-cart cart two'></i>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Past week´s orders</div>
+                        <div class="number">@ordersPlacedPast7Days</div>
+                    </div>
+                    <i class='bx bx-cart-add cart three'></i>
+                </div>
+               
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Past week´s sales</div>
+                        <div class="number">@orderTotalPast7Days</div>
+                    </div>
+                    <i class='bx bxs-cart-download cart four'></i>
+                </div>
+            </div>
+
+            <div class="sales-boxes">
+                <div class="recent-sales box">
+                    <div class="title">Recent Sales</div>
+                    <div class="sales-details">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Total</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Orders.OrderByDescending(o => o.ExactDateOrderplaced))
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ExactDateOrderplaced)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OrderTotal)
+                                        </td>
+                                        
+                                    </tr>
+
+                                    i++;
+
+                                    if (i == 10)
+                                    {
+                                        break;
+                                    }
+
+                                }
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <div class="button">
+                        <a asp-controller="Admin"
+                       asp-action="OrderList">See All</a>
+                    </div>
+                </div>
+
+
+                
+
+
+                <div class="top-sales box">
+                    <div class="title">Top Selling Product</div>
+                    <ul class="top-sales-details">
+                    
+               
+                        @foreach (var item in Model.QueryMostSoldProducts.OrderByDescending(o => o.AmountOfCopiesSold))
+                        {
+                        <li>
+                            <a href="#">  
+                                <img src=@item.ImageThumbnailUrl />
+                                <span class="product">@item.Name </span>
+                            </a>
+                            <span class="price">@item.Price</span>
+                        </li>
+                        
+                            i2++;
+
+                            if (i2 == 10)
+                            {
+                                break;
+                            }
+                            
+                            
+
+                        }
+                    </ul>
+                      
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+
+
 }
-
-<h1>Index</h1>
-
-<p>
-
-    <a asp-action="OrderList">OrderList</a>
-</p>
-
-<p>
-    <a asp-action="ManageProducts">Manage Products</a>
-</p>
-
-<p>
-    <a asp-action="Dashboard">Dashboard of orders</a>
-</p>
-

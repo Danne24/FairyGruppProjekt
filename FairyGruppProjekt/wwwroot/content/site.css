@@ -1,8 +1,33 @@
 ﻿body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+   /* background-image: url("../images2/background.jpg");*/
     font-family: sans-serif;
 }
 
+
+/***************/
+.outOfStockMessage {
+    color: red;
+}
+/*****************/
+
+
+.container-products {
+    position: relative;
+    min-height: 100vh;
+    left: 250px;
+    transition: all 0.5s ease;
+}
+    .container-products h2 {
+        position: relative;
+        left: 250px;
+    }
+.shopping-Cart-section {
+    position: relative;
+    min-height: 100vh;
+    left: 250px;
+    transition: all 0.5s ease;
+}
 
 .slide-image {
     width: 100%;
@@ -53,8 +78,8 @@ footer {
 }
 
 .navbar-inverse {
-    background-color: #0f4d92;
-    border-color: #0f4d92;
+    background-color: #0a2558;
+    border-color: #0a2558;
 }
 
 .nav.navbar-nav.navbar-right li a {
@@ -69,6 +94,7 @@ li {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     color: white;
 }
+
 
 .carousel .item {
     height: 400px;
@@ -100,10 +126,7 @@ li {
 
 /*******************************/
 
-.container-home {
-    background-image: url('/images2/background.jpg');
-    background-repeat: no-repeat;
-}
+
 .about {
     margin-top: 300px;
     margin-left: 50px;
@@ -111,7 +134,7 @@ li {
 
 .buttonFrontPage {
     width: 200px;
-    padding: 15px 0;
+    padding: 17px 5px;
     text-align: center;
     margin: 20px 10px;
     font-weight: bold;
@@ -142,6 +165,7 @@ li {
 .buttonFrontPage:hover {
     border: none;
     color: white;
+    text-decoration: none;
 }
 
 .h1Home {
@@ -176,12 +200,22 @@ li {
     transition: 0.5s;
 }
 
+.buttonFrontPage:hover span {
+    width: 100%;
+}
+
+.buttonFrontPage:hover {
+    border: none;
+}
+
+.content-button{
+    margin-top: 40px;
+}
 /*.btn-primary {
     background-color: rgb(255, 0, 0) !important;
     border-color: #0f4d92 !important;
 }
 */
-
 /*
 .btn-primary {
     color: blue !important;
@@ -202,15 +236,13 @@ li {
         opacity: .5;
     }
 */
-
 .About-us-content {
-
-   /* background-color: lightblue;
+    /* background-color: lightblue;
     margin-bottom: 300px;
     margin-right: 200px;*/
 
 
-   margin-top: 900px;
+    margin-top: 900px;
     height: 500px;
     width: auto;
     background: #0f4d92;
@@ -226,11 +258,11 @@ li {
     width: 1000px;
     height: 200px;
 }
-.img-home img {
+/*.img-home img {
     width: 20%;
     height: 20%;
  
-}
+}*/
 .h1Home2 {
     color: #fff;
     font-size: 55px;
@@ -338,7 +370,7 @@ li {
     background: #f5f5f5;
     min-height: 100vh;
     width: calc(100% - 240px);
-    left: 240px;
+    left: 250px;
     transition: all 0.5s ease;
 }
 
@@ -625,8 +657,8 @@ nav .profile-details i {
 }
 
     .sales-boxes .top-sales li a img {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
         object-fit: cover;
         border-radius: 12px;
         margin-right: 10px;
@@ -755,5 +787,267 @@ nav .profile-details i {
     .sidebar.active ~ .home-section nav {
         left: 60px;
         width: calc(100% - 60px);
+    }
+}
+/*CONTACT*/
+/************************/
+
+
+#contact {
+    width: 100%;
+    height: 100%;
+}
+
+.section-header {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 20px;
+    padding: 40px 0;
+    font-family: 'Mukta', sans-serif;
+    color: #0f4d92;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+
+    font-size: 40px;
+    color: #0f4d92;
+    font-weight: bold;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    max-width: 840px;
+}
+
+/* Left contact page */
+#contact-form .form-horizontal {
+    /*float: left;*/
+    max-width: 400px;
+    font-family: 'Lato';
+    font-weight: 400;
+}
+
+.form-control,
+textarea {
+    max-width: 400px;
+    background-color: #fff;
+    letter-spacing: 1px;
+  /*  color: black;*/
+}
+
+.send-button {
+    margin-top: 15px;
+    height: 34px;
+    width: 400px;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.alt-send-button {
+    width: 400px;
+    height: 34px;
+    transition: all .2s ease-in-out;
+}
+
+.send-text {
+    display: block;
+    margin-top: 10px;
+    font: 700 12px 'Lato', sans-serif;
+    letter-spacing: 2px;
+}
+
+.alt-send-button:hover {
+    transform: translate3d(0px, -29px, 0px);
+}
+
+/* Begin Right Contact Page */
+.direct-contact-container {
+    max-width: 400px;
+}
+
+/* Location, Phone, Email Section */
+.contact-list {
+    list-style-type: none;
+    margin-left: -30px;
+    padding-right: 20px;
+}
+
+.list-item {
+    line-height: 4;
+    color: #aaa;
+}
+
+.contact-text {
+    font: 300 18px 'Lato', sans-serif;
+    letter-spacing: 1.9px;
+    color: black;
+}
+
+.place {
+    margin-left: 62px;
+}
+
+.phone {
+    margin-left: 56px;
+}
+
+.gmail {
+    margin-left: 53px;
+}
+
+.contact-text a {
+    color: black;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+    .contact-text a:hover {
+        color: #bbb;
+        text-decoration: none;
+    }
+
+
+/* Social Media Icons */
+.social-media-list {
+    position: relative;
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+    .social-media-list li a {
+        color: #fff;
+    }
+
+    .social-media-list li {
+        position: relative;
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        margin: 10px 3px;
+        line-height: 60px;
+        border-radius: 50%;
+        color: #fff;
+        background-color: rgb(27,27,27);
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+
+        .social-media-list li:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            opacity: 0;
+            box-shadow: 0 0 0 1px #fff;
+            transition: all .2s ease-in-out;
+        }
+
+        .social-media-list li:hover {
+            background-color: #fff;
+        }
+
+            .social-media-list li:hover:after {
+                opacity: 1;
+                transform: scale(1.12);
+                transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+            }
+
+            .social-media-list li:hover a {
+                color: #000;
+            }
+
+.copyright {
+    font: 200 14px 'Oswald', sans-serif;
+    color: #555;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+hr {
+    border-color: rgba(255,255,255,.6);
+}
+
+/* Begin Media Queries*/
+@media screen and (max-width: 850px) {
+    .contact-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .direct-contact-container, .form-horizontal {
+        margin: 0 auto;
+    }
+
+    .direct-contact-container {
+        margin-top: 60px;
+        max-width: 300px;
+    }
+
+    .social-media-list li {
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+    }
+
+        .social-media-list li:after {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+        }
+}
+
+@media screen and (max-width: 569px) {
+
+    .direct-contact-container, .form-wrapper {
+        float: none;
+        margin: 0 auto;
+    }
+
+    .form-control, textarea {
+        margin: 0 auto;
+    }
+
+
+    .name, .email, textarea {
+        width: 280px;
+    }
+
+    .direct-contact-container {
+        margin-top: 60px;
+        max-width: 280px;
+    }
+
+    .social-media-list {
+        left: 0;
+    }
+
+        .social-media-list li {
+            height: 55px;
+            width: 55px;
+            line-height: 55px;
+            font-size: 2rem;
+        }
+
+            .social-media-list li:after {
+                width: 55px;
+                height: 55px;
+                line-height: 55px;
+            }
+}
+
+@media screen and (max-width: 410px) {
+    .send-button {
+        width: 99%;
     }
 }

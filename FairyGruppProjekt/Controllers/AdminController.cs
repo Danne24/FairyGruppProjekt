@@ -5,6 +5,7 @@ using FairyGruppProjekt.Models.Repositories;
 using FairyGruppProjekt.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
 using System.Data;
 
 namespace FairyGruppProjekt.Controllers
@@ -23,7 +24,7 @@ namespace FairyGruppProjekt.Controllers
             _orderRepository = orderRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index2()
         {
             
             return View();
@@ -37,22 +38,25 @@ namespace FairyGruppProjekt.Controllers
 
         public IActionResult Stock()
         {
-            var lowInStock = _productRepository.GetAllProducts.Where(p => p.Amount <= 20);
+            var lowInStock = _productRepository.GetAllProducts.Where(p => p.AmountOfCopiesInStorage <= 20);
             return View(lowInStock);
         }
-        public IActionResult Index2()
+        public IActionResult Index()
         {
             IEnumerable<Product> products;
             IEnumerable<Order> orders;
+            IEnumerable<Product> mostSoldProducts;
 
             products = _productRepository.GetAllProducts.OrderBy(p => p.ProductId);
             orders = _orderRepository.GetAllOrders();
+            mostSoldProducts = _orderRepository.MostSoldProducts();
 
 
             return View(new AdminViewModel
             {
                 Products = products,
-                Orders = orders
+                Orders = orders,
+                QueryMostSoldProducts = mostSoldProducts
             });
         }
 
@@ -171,5 +175,34 @@ namespace FairyGruppProjekt.Controllers
             return View(order);
 
         }
+
+        //public IActionResult PopularProducts()
+        //{
+        //    var products = _orderRepository.MostSoldProducts();
+        //    return View(products);
+         
+        //}
+
+        public IActionResult TotalSales()
+        {
+            IEnumerable<Product> products;
+            IEnumerable<Order> orders;
+            IEnumerable<Product> mostSoldProducts;
+
+            products = _productRepository.GetAllProducts.OrderBy(p => p.ProductId);
+            orders = _orderRepository.GetAllOrders();
+            mostSoldProducts = _orderRepository.MostSoldProducts();
+
+
+            return View(new AdminViewModel
+            {
+                Products = products,
+                Orders = orders,
+                QueryMostSoldProducts = mostSoldProducts
+            });
+
+        }
+
+
     }
 }
