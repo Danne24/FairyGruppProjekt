@@ -24,11 +24,6 @@ namespace FairyGruppProjekt.Controllers
             _orderRepository = orderRepository;
         }
 
-        public IActionResult Index2()
-        {
-            
-            return View();
-        }
         public IActionResult ManageProducts()
         {
             var products = _productRepository.GetAllProducts.ToList();
@@ -212,6 +207,11 @@ namespace FairyGruppProjekt.Controllers
                 QueryMostSoldProducts = mostSoldProducts
             });
 
+        }
+
+        public IActionResult Team()
+        {
+            return View();
         }
 
 

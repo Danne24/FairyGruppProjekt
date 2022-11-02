@@ -4,6 +4,7 @@ using FairyGruppProjekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FairyGruppProjekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221102153656_addedProducts")]
+    partial class addedProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -542,7 +544,7 @@ namespace FairyGruppProjekt.Migrations
                             AmountOfCopiesInStorage = 25,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\fairy1.png",
+                            ImageThumbnailUrl = "\\images2\\fairy1.jpg",
                             IsOnSale = false,
                             Name = "Fairy Toy",
                             Price = 70m
@@ -553,7 +555,7 @@ namespace FairyGruppProjekt.Migrations
                             AmountOfCopiesInStorage = 10,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\blueWings.png",
+                            ImageThumbnailUrl = "\\images2\\blueWings.jpg",
                             IsOnSale = true,
                             Name = "Fairy Wings Blue",
                             Price = 100m
@@ -564,7 +566,7 @@ namespace FairyGruppProjekt.Migrations
                             AmountOfCopiesInStorage = 35,
                             CategoryId = 2,
                             Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
-                            ImageThumbnailUrl = "\\images2\\whiteWings.png",
+                            ImageThumbnailUrl = "\\images2\\whiteWings.jpg",
                             IsOnSale = true,
                             Name = "Fairy Wings White",
                             Price = 100m
@@ -866,19 +868,15 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "dacdc503-6ab6-42b6-be0a-4044b5de700b",
-
+                            ConcurrencyStamp = "116c835e-7662-4772-acb4-d9cf19976626",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-
-                            PasswordHash = "AQAAAAEAACcQAAAAEOW6LADd9KeQabqfjAlsWScXKFbJv/C3UNG/H4ATOzkNNHVHWy83/IvRFOqj05dBig==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAMgPyryio6AvShusPxSpS/mW9tAaMlwRWTm+L3ov+J7jaBy6vKX9mPRSnJmcFM2rQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "08c5a264-f995-4dcd-a649-e634ae3b4f66",
-
+                            SecurityStamp = "1c08a040-2cb2-41c3-9a7a-2ad8c1910f58",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
