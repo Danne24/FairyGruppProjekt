@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FairyGruppProjekt.Migrations
 {
-    public partial class AdminUserSeedData : Migration
+    public partial class Pricewithcurrency : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -80,6 +80,20 @@ namespace FairyGruppProjekt.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "usedCurrencies",
+                columns: table => new
+                {
+                    TempKey = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CurValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    CurName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_usedCurrencies", x => x.TempKey);
                 });
 
             migrationBuilder.CreateTable(
@@ -202,7 +216,8 @@ namespace FairyGruppProjekt.Migrations
                     IsOnSale = table.Column<bool>(type: "bit", nullable: false),
                     IsInStock = table.Column<bool>(type: "bit", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    usedCurrencyTempKey = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -213,6 +228,11 @@ namespace FairyGruppProjekt.Migrations
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_usedCurrencies_usedCurrencyTempKey",
+                        column: x => x.usedCurrencyTempKey,
+                        principalTable: "usedCurrencies",
+                        principalColumn: "TempKey");
                 });
 
             migrationBuilder.CreateTable(
@@ -267,12 +287,16 @@ namespace FairyGruppProjekt.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "c7f60d29-1f83-4ec8-95f7-3a82f082e9e6", "Admin", "ADMINISTRATOR" });
+                values: new object[,]
+                {
+                    { "c7b013f0-5201-4317-abd8-c211f91b7330", "2", "HR", "Human Resource" },
+                    { "fab4fac1-c546-41de-aebc-a14da6895711", "1", "Admin", "Admin" }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "5fc5ccc4-81ed-460e-a93c-d58031a405cb", "AppUser", null, false, false, null, null, "MYUSER", "AQAAAAEAACcQAAAAEDd9K3cRBtId9xmbo99tsv4iQ/MF2caZwPbfMkh2FFVQRpjVVBrxnAonUC6qyq7N+w==", null, false, "db6442a8-a5cb-4d7e-baa5-2c07876f4716", false, "Admin" });
+                values: new object[] { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "d6566e4f-7ae4-4eeb-b038-5b76eb199d6e", "AppUser", "admin@random.com", false, false, null, "ADMIN@RANDOM.COM", "ADMIN@RANDOM.COM", "AQAAAAEAACcQAAAAEL4IFyCdyvAngQ5Q8jZGrP8IvA+lWqKDN+ZnCKyAKTmwCAN4HYofpxtQ2UAoKbNtCQ==", null, false, "7f96777d-411e-40b4-a260-cee1f8b1e429", false, "admin@random.com" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -287,47 +311,52 @@ namespace FairyGruppProjekt.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "usedCurrencies",
+                columns: new[] { "TempKey", "CurName", "CurValue" },
+                values: new object[] { 1, "SEK", 1m });
+
+            migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "8e445865-a24d-4543-a6c6-9443d048cdb9" });
+                values: new object[] { "fab4fac1-c546-41de-aebc-a14da6895711", "b74ddd14-6340-4840-95c2-db12554843e5" });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "Amount", "CategoryId", "Description", "ImageThumbnailUrl", "ImageUrl", "IsInStock", "IsOnSale", "Name", "Price" },
+                columns: new[] { "ProductId", "Amount", "CategoryId", "Description", "ImageThumbnailUrl", "ImageUrl", "IsInStock", "IsOnSale", "Name", "Price", "usedCurrencyTempKey" },
                 values: new object[,]
                 {
-                    { 1, 0, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.", "\\images2\\borr.jpg", null, true, false, "Borr hårdmetall", 79.90m },
-                    { 2, 0, 1, "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.", "\\images2\\borr2.jpg", null, true, true, "Borr hårdmetall", 89.50m },
-                    { 3, 0, 1, "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.", "\\images2\\borr3.jpg", null, true, false, "Borr hårdmetall", 145.50m },
-                    { 4, 0, 1, "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.", "\\images2\\borr4.jpg", null, true, false, "Borr hårdmetall", 79.50m },
-                    { 5, 0, 2, "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.", "\\images2\\kaffe.jpg", null, true, true, "Classic kaffe brygg", 49.50m },
-                    { 6, 0, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\kaffe2.jpg", null, true, true, "Kaffe Nescafé", 35.50m },
-                    { 7, 0, 2, "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.", "\\images2\\te.jpg", null, true, true, "Tepåsar 100st", 49.50m },
-                    { 8, 0, 3, "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.", "\\images2\\ytdes.jpg", null, true, false, "Ytdesinfektion", 99.90m },
-                    { 9, 0, 3, "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.", "\\images2\\ytdes2.jpg", null, true, false, "Ytdesinfektion", 79.90m },
-                    { 10, 0, 3, "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.", "\\images2\\des.jpg", null, true, true, "Handdesinfektion", 35m },
-                    { 11, 0, 4, "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.", "\\images2\\tandb.jpg", null, true, true, "Tandborste Gum Junior", 12.95m },
-                    { 12, 0, 4, "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.", "\\images2\\blekning.jpg", null, true, true, "Brilliant smile Kit", 599m },
-                    { 13, 0, 4, "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.", "\\images2\\blekning2.jpg", null, true, false, "Brilliant smile", 499m },
-                    { 14, 0, 4, "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.", "\\images2\\blek3.jpg", null, true, true, "Perfect Bleach", 4995m },
-                    { 15, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate.jpg", null, true, false, "Colgate tandborste", 10.90m },
-                    { 16, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate2.jpg", null, true, false, "Colgate Smiles 0-2år", 12.50m },
-                    { 17, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate3.jpg", null, true, false, "Colgate Smiles 2-6år", 12.50m },
-                    { 18, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate4.jpg", null, true, false, "Colgate Tandkräm", 12.50m },
-                    { 19, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate5.jpg", null, true, false, "Colgate Kids 0-5år", 12.50m },
-                    { 20, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate6.jpg", null, true, false, "Colgate Smiles 6+", 12.50m },
-                    { 21, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\flux.jpg", null, true, false, "Flux Junior Munskölj", 25m },
-                    { 22, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\flux2.jpg", null, true, false, "Flux Munskölj", 25m },
-                    { 23, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\flux3.jpg", null, true, false, "Flux Munskölj Granate/Mint", 25m },
-                    { 24, 0, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\bamse.jpg", null, true, false, "Tandkräm Bamse", 16.95m },
-                    { 25, 0, 5, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\spruta3.jpg", null, true, false, "Aspiject Spruta", 95m },
-                    { 26, 0, 5, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\spruta4.jpg", null, true, false, "Dentsply Sirona Irrigation Needle", 75m },
-                    { 27, 0, 5, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\spruta5.jpg", null, true, false, "Endo spolkanyl", 25m },
-                    { 28, 0, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\kollegie.jpg", null, true, true, "Kollegieblock Linjerat A4", 25m },
-                    { 29, 0, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\papper.jpg", null, true, true, "Kopieringspapper 500st", 100m },
-                    { 30, 0, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\penna.jpg", null, true, true, "Stiftpenna 12st", 35m },
-                    { 31, 0, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\postit.jpg", null, true, true, "Postit Neonkub", 25m },
-                    { 32, 0, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\pärm.jpg", null, true, true, "Gaffelpärm Blå A4", 35m }
+                    { 1, 20, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.", "\\images2\\borr.jpg", null, true, false, "Borr hårdmetall", 79.90m, null },
+                    { 2, 100, 1, "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.", "\\images2\\borr2.jpg", null, true, true, "Borr hårdmetall", 89.50m, null },
+                    { 3, 30, 1, "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.", "\\images2\\borr3.jpg", null, true, false, "Borr hårdmetall", 145.50m, null },
+                    { 4, 8, 1, "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.", "\\images2\\borr4.jpg", null, true, false, "Borr hårdmetall", 79.50m, null },
+                    { 5, 10, 2, "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.", "\\images2\\kaffe.jpg", null, true, true, "Classic kaffe brygg", 49.50m, null },
+                    { 6, 150, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\kaffe2.jpg", null, true, true, "Kaffe Nescafé", 35.50m, null },
+                    { 7, 15, 2, "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.", "\\images2\\te.jpg", null, true, true, "Tepåsar 100st", 49.50m, null },
+                    { 8, 80, 3, "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.", "\\images2\\ytdes.jpg", null, true, false, "Ytdesinfektion", 99.90m, null },
+                    { 9, 100, 3, "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.", "\\images2\\ytdes2.jpg", null, true, false, "Ytdesinfektion", 79.90m, null },
+                    { 10, 120, 3, "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.", "\\images2\\des.jpg", null, true, true, "Handdesinfektion", 35m, null },
+                    { 11, 30, 4, "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.", "\\images2\\tandb.jpg", null, true, true, "Tandborste Gum Junior", 12.95m, null },
+                    { 12, 15, 4, "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.", "\\images2\\blekning.jpg", null, true, true, "Brilliant smile Kit", 599m, null },
+                    { 13, 50, 4, "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.", "\\images2\\blekning2.jpg", null, true, false, "Brilliant smile", 499m, null },
+                    { 14, 45, 4, "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.", "\\images2\\blek3.jpg", null, true, true, "Perfect Bleach", 4995m, null },
+                    { 15, 13, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate.jpg", null, true, false, "Colgate tandborste", 10.90m, null },
+                    { 16, 15, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate2.jpg", null, true, false, "Colgate Smiles 0-2år", 12.50m, null },
+                    { 17, 25, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate3.jpg", null, true, false, "Colgate Smiles 2-6år", 12.50m, null },
+                    { 18, 90, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate4.jpg", null, true, false, "Colgate Tandkräm", 12.50m, null },
+                    { 19, 80, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate5.jpg", null, true, false, "Colgate Kids 0-5år", 12.50m, null },
+                    { 20, 70, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\colgate6.jpg", null, true, false, "Colgate Smiles 6+", 12.50m, null },
+                    { 21, 100, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\flux.jpg", null, true, false, "Flux Junior Munskölj", 25m, null },
+                    { 22, 95, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\flux2.jpg", null, true, false, "Flux Munskölj", 25m, null },
+                    { 23, 70, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\flux3.jpg", null, true, false, "Flux Munskölj Granate/Mint", 25m, null },
+                    { 24, 50, 4, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\bamse.jpg", null, true, false, "Tandkräm Bamse", 16.95m, null },
+                    { 25, 25, 5, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\spruta3.jpg", null, true, false, "Aspiject Spruta", 95m, null },
+                    { 26, 25, 5, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\spruta4.jpg", null, true, false, "Dentsply Sirona Irrigation Needle", 75m, null },
+                    { 27, 30, 5, "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.", "\\images2\\spruta5.jpg", null, true, false, "Endo spolkanyl", 25m, null },
+                    { 28, 15, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\kollegie.jpg", null, true, true, "Kollegieblock Linjerat A4", 25m, null },
+                    { 29, 50, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\papper.jpg", null, true, true, "Kopieringspapper 500st", 100m, null },
+                    { 30, 10, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\penna.jpg", null, true, true, "Stiftpenna 12st", 35m, null },
+                    { 31, 70, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\postit.jpg", null, true, true, "Postit Neonkub", 25m, null },
+                    { 32, 53, 2, "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ", "\\images2\\pärm.jpg", null, true, true, "Gaffelpärm Blå A4", 35m, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -385,6 +414,11 @@ namespace FairyGruppProjekt.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_usedCurrencyTempKey",
+                table: "Products",
+                column: "usedCurrencyTempKey");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartItems_ProductId",
                 table: "ShoppingCartItems",
                 column: "ProductId");
@@ -427,6 +461,9 @@ namespace FairyGruppProjekt.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "usedCurrencies");
         }
     }
 }

@@ -24,6 +24,8 @@ namespace FairyGruppProjekt.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<UsedCurrency> usedCurrencies { get; set; }
+ 
 
 
 
@@ -38,7 +40,7 @@ namespace FairyGruppProjekt.Data
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Blekning & Tandvård"});
             modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Sprutor & Kanyler" });
 
-
+           
 
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -427,15 +429,14 @@ namespace FairyGruppProjekt.Data
                 IsOnSale = true,
                 Amount = 53
             });
-            //modelBuilder.Entity<AppUser>().HasData( new AppUser
-            //{
-            //    Id = "1b5cc502-5edd-4838-ba6e-83469a10fc03",
-            //    UserName = "Admin",
-            //    Email = "admin@admin.com",
-            //    LockoutEnabled = false,
+            modelBuilder.Entity<UsedCurrency>().HasData(new UsedCurrency
+            {
+                TempKey = 1,
+                CurName="SEK",
+                CurValue=1
+            });
 
 
-            //});
             this.SeedUsers(modelBuilder);
             this.SeedRoles(modelBuilder);
             this.SeedUserRoles(modelBuilder);

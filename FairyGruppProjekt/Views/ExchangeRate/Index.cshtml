@@ -13,15 +13,13 @@
          <td>basecode: @Model.base_code</td>
 
        <td>
-            <select class="form-control">
-                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.SEK>SEK</option>
-                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.USD>USD</option>
-                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.EUR>EUR</option>
-                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.GBP>GBP</option>
-                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.JPY>JPY</option>
-                <option asp-action="UpdateCurrency" value=@Model.conversion_rates.CNY>CNY</option>
-            </select>
-            
+            <a asp-controller="ExchangeRate" asp-action="UpdateCurrency" asp-route-id="0" class="btn btn-primary">SEK</a>
+            <a asp-controller="ExchangeRate" asp-action="UpdateCurrency" asp-route-id="1" class="btn btn-primary">USD</a>
+            <a asp-controller="ExchangeRate" asp-action="UpdateCurrency" asp-route-id="2" class="btn btn-primary">EUR</a>
+            <a asp-controller="ExchangeRate" asp-action="UpdateCurrency" asp-route-id="3" class="btn btn-primary">GBP</a>
+            <a asp-controller="ExchangeRate" asp-action="UpdateCurrency" asp-route-id="4" class="btn btn-primary">JPY</a>
+            <a asp-controller="ExchangeRate" asp-action="UpdateCurrency" asp-route-id="5" class="btn btn-primary">CNY</a>
+        
         </td>
         </tr>
 
