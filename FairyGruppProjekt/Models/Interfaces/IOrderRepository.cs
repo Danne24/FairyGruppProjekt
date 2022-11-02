@@ -12,6 +12,7 @@
         IEnumerable<Order> GetAllOrders();
         Order GetOrderById(int id);
         IEnumerable<OrderDetail> GetOrderDetails();
+        IEnumerable<Product> MostSoldProducts();
 
 
     }

@@ -24,6 +24,7 @@ namespace FairyGruppProjekt.Models.Repositories
         public void CreateOrder(Order order)
         {
             order.OrderPlaced = DateTime.Today;
+            order.ExactDateOrderplaced = DateTime.Now;
             order.OrderTotal = _shoppingCart.GetShoppingCartTotal();
             _appDbContext.Orders.Add(order);
             _appDbContext.SaveChanges();
@@ -38,8 +39,12 @@ namespace FairyGruppProjekt.Models.Repositories
                     Amount = shoppigCartItem.Amount,
                     Price = shoppigCartItem.Product.Price,
                     ProductId = shoppigCartItem.Product.ProductId,
-                    OrderId = order.OrderId
+                    OrderId = order.OrderId,
+                    
                 };
+
+                shoppigCartItem.Product.AmountOfCopiesInStorage = shoppigCartItem.Product.AmountOfCopiesInStorage - orderDetails.Amount;
+                shoppigCartItem.Product.AmountOfCopiesSold =+ orderDetails.Amount;
 
                 _appDbContext.OrderDetails.Add(orderDetails);
             }
@@ -86,6 +91,21 @@ namespace FairyGruppProjekt.Models.Repositories
         public IEnumerable<OrderDetail> GetOrderDetails()
         {
             return _appDbContext.OrderDetails.ToList();
+        }
+
+        public IEnumerable<Product> MostSoldProducts()
+        {
+            var query = from p in _appDbContext.Products
+                        let totalQuantity = (from op in _appDbContext.OrderDetails
+                                             join o in _appDbContext.Orders on op.OrderId equals o.OrderId
+                                             where op.ProductId == p.ProductId && o.OrderPlaced > DateTime.Today.AddDays(-31)
+                                             select op.Amount).Sum()
+
+                        where totalQuantity > 0
+                        orderby totalQuantity descending
+                        select p;
+            
+            return query;
         }
     }
 }

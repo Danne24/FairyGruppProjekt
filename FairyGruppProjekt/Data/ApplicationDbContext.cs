@@ -34,171 +34,158 @@ namespace FairyGruppProjekt.Data
             base.OnModelCreating(modelBuilder);
 
 
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Borr & Diamanter" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Kontor & Väntrum" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 3, CategoryName = "Hygien & Rengöring" });
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Blekning & Tandvård"});
-            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Sprutor & Kanyler" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 1, CategoryName = "Dental drills" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 2, CategoryName = "Office & Lounge" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 3, CategoryName = "Hygiene & Cleaning" });
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 4, CategoryName = "Whitening & Dental care"});
+            modelBuilder.Entity<Category>().HasData(new Category { CategoryId = 5, CategoryName = "Syringes & Cannula" });
 
            
 
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 1,
-                Name = "Borr hårdmetall",
+                Name = "Dental drill metal 390/008",
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Tortor posuere ac ut consequat. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Lacus sed turpis tincidunt id aliquet risus feugiat in. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.",
                 ImageThumbnailUrl = "\\images2\\borr.jpg",
-                IsInStock = true,
                 IsOnSale = false,
                 Price = 79.90M,
                 CategoryId = 1,
-                Amount = 20
+                AmountOfCopiesInStorage = 20
 
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 2,
-                Name = "Borr hårdmetall",
+                Name = "Dental drill metal 180/012",
                 Price = 89.50M,
                 Description = "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Quisque egestas diam in arcu cursus. Sed viverra tellus in hac. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
                 CategoryId = 1,
                 ImageThumbnailUrl = "\\images2\\borr2.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 100
+                AmountOfCopiesInStorage = 100
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 3,
-                Name = "Borr hårdmetall",
+                Name = "Dental drill metal 390/012",
                 Price = 145.50M,
                 Description = "Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Sed faucibus turpis in eu mi bibendum neque egestas. At in tellus integer feugiat scelerisque. Elementum integer enim neque volutpat ac tincidunt.",
                 CategoryId = 1,
                 ImageThumbnailUrl = "\\images2\\borr3.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 30,
+                AmountOfCopiesInStorage = 30,
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 4,
-                Name = "Borr hårdmetall",
+                Name = "Dental drill metal 010/012",
                 Price = 79.50M,
                 Description = "Vitae congue eu consequat ac felis donec et. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Vel eros donec ac odio. A lacus vestibulum sed arcu non odio euismod lacinia at. Nisl suscipit adipiscing bibendum est ultricies integer. Nec tincidunt praesent semper feugiat nibh.",
                 CategoryId = 1,
                 ImageThumbnailUrl = "\\images2\\borr4.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 8
+                AmountOfCopiesInStorage = 8
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 5,
-                Name = "Classic kaffe brygg",
+                Name = "Classic brew coffe",
                 Price = 49.50M,
                 Description = "Purus sit amet luctus venenatis lectus magna fringilla. Consectetur lorem donec massa sapien faucibus et molestie ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\kaffe.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 10
+                AmountOfCopiesInStorage = 10
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 6,
-                Name = "Kaffe Nescafé",
+                Name = "Coffe Nescafé",
                 Price = 35.50M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\kaffe2.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 150
+                AmountOfCopiesInStorage = 150
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 7,
-                Name = "Tepåsar 100st",
+                Name = "Tea, 100 Teabags",
                 Price = 49.50M,
                 Description = "Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Molestie at elementum eu facilisis sed odio morbi quis commodo. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis.",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\te.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 15
+                AmountOfCopiesInStorage = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 8,
-                Name = "Ytdesinfektion",
+                Name = "Surface disinfection",
                 Price = 99.90M,
                 Description = "Posuere ac ut consequat semper viverra nam libero justo laoreet. Ultrices dui sapien eget mi proin sed libero enim. Etiam non quam lacus suspendisse faucibus interdum. Amet nisl suscipit adipiscing bibendum est ultricies integer quis.",
                 CategoryId = 3,
                 ImageThumbnailUrl = "\\images2\\ytdes.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 80
+                AmountOfCopiesInStorage = 80
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 9,
-                Name = "Ytdesinfektion",
+                Name = "Surface disinfection",
                 Price = 79.90M,
                 Description = "Ut ornare lectus sit amet est placerat in egestas. Iaculis nunc sed augue lacus viverra vitae. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Accumsan tortor posuere ac ut consequat semper viverra.",
                 CategoryId = 3,
                 ImageThumbnailUrl = "\\images2\\ytdes2.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 100
+                AmountOfCopiesInStorage = 100
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 10,
-                Name = "Handdesinfektion",
+                Name = "Hand disinfection",
                 Price = 35M,
                 Description = "Vitae congue eu consequat ac felis donec et odio. Tellus orci ac auctor augue mauris augue. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Sed pulvinar proin gravida hendrerit lectus a.",
                 CategoryId = 3,
                 ImageThumbnailUrl = "\\images2\\des.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 120
+                AmountOfCopiesInStorage = 120
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 11,
-                Name = "Tandborste Gum Junior",
+                Name = "Toothbrush Gum Junior",
                 Price = 12.95M,
                 Description = "Hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\tandb.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 30
+                AmountOfCopiesInStorage = 30
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 12,
-                Name = "Brilliant smile Kit",
+                Name = "Brilliant Smile Kit",
                 Price = 599M,
                 Description = "Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Vulputate eu scelerisque felis imperdiet proin fermentum.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\blekning.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 15
+                AmountOfCopiesInStorage = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 13,
-                Name = "Brilliant smile",
+                Name = "Brilliant Smile",
                 Price = 499M,
                 Description = "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Arcu cursus euismod quis viverra.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\blekning2.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 50
+                AmountOfCopiesInStorage = 50
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -208,69 +195,63 @@ namespace FairyGruppProjekt.Data
                 Description = "Blandit massa enim nec dui nunc mattis enim ut tellus. Duis at consectetur lorem donec massa sapien faucibus et. At auctor urna nunc id cursus metus. Ut enim blandit volutpat maecenas volutpat blandit.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\blek3.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 45
+                AmountOfCopiesInStorage = 45
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 15,
-                Name = "Colgate tandborste",
+                Name = "Colgate toothbrush",
                 Price = 10.90M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 13
+                AmountOfCopiesInStorage = 13
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 16,
-                Name = "Colgate Smiles 0-2år",
+                Name = "Colgate Smiles 0-2 years",
                 Price = 12.50M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate2.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 15
+                AmountOfCopiesInStorage = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 17,
-                Name = "Colgate Smiles 2-6år",
+                Name = "Colgate Smiles 2-6 years",
                 Price = 12.50M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate3.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 25
+                AmountOfCopiesInStorage = 25
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 18,
-                Name = "Colgate Tandkräm",
+                Name = "Colgate Toothpaste",
                 Price = 12.50M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate4.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 90
+                AmountOfCopiesInStorage = 90
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 19,
-                Name = "Colgate Kids 0-5år",
+                Name = "Colgate Kids 0-5 years",
                 Price = 12.50M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
-                CategoryId = 4,
+                CategoryId = 4,            
                 ImageThumbnailUrl = "\\images2\\colgate5.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 80
+                AmountOfCopiesInStorage = 80
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -280,69 +261,63 @@ namespace FairyGruppProjekt.Data
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\colgate6.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 70
+                AmountOfCopiesInStorage = 70
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 21,
-                Name = "Flux Junior Munskölj",
+                Name = "Flux Junior Mouthwash",
                 Price = 25M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\flux.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 100
+                AmountOfCopiesInStorage = 100
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 22,
-                Name = "Flux Munskölj",
+                Name = "Flux Mouthwash",
                 Price = 25M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\flux2.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 95
+                AmountOfCopiesInStorage = 95
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 23,
-                Name = "Flux Munskölj Granate/Mint",
+                Name = "Flux Mouthwash Granate/Mint",
                 Price = 25M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\flux3.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 70
+                AmountOfCopiesInStorage = 70
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 24,
-                Name = "Tandkräm Bamse",
+                Name = "Toothpaste Bamse",
                 Price = 16.95M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 4,
                 ImageThumbnailUrl = "\\images2\\bamse.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 50
+                AmountOfCopiesInStorage = 50
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 25,
-                Name = "Aspiject Spruta",
+                Name = "Aspiject Syringe",
                 Price = 95M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 5,
                 ImageThumbnailUrl = "\\images2\\spruta3.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 25
+                AmountOfCopiesInStorage = 25
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -352,82 +327,75 @@ namespace FairyGruppProjekt.Data
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 5,
                 ImageThumbnailUrl = "\\images2\\spruta4.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 25
+                AmountOfCopiesInStorage = 25
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 27,
-                Name = "Endo spolkanyl",
+                Name = "Endo Cannula",
                 Price = 25M,
                 Description = "Nisi lacus sed viverra tellus in. Morbi non arcu risus quis varius quam quisque id. Cras adipiscing enim eu turpis egestas. Tristique nulla aliquet enim tortor. Quisque id diam vel quam. Id faucibus nisl tincidunt eget nullam.",
                 CategoryId = 5,
                 ImageThumbnailUrl = "\\images2\\spruta5.jpg",
-                IsInStock = true,
                 IsOnSale = false,
-                Amount = 30
+                AmountOfCopiesInStorage = 30
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 28,
-                Name = "Kollegieblock Linjerat A4",
+                Name = "Collegiate block Lined A4",
                 Price = 25M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\kollegie.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 15
+                AmountOfCopiesInStorage = 15
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 29,
-                Name = "Kopieringspapper 500st",
+                Name = "A4 paper, 500 bundle",
                 Price = 100M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\papper.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 50
+                AmountOfCopiesInStorage = 50
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 30,
-                Name = "Stiftpenna 12st",
+                Name = "Ballpoint pen 12 bundle",
                 Price = 35M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\penna.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 10
+                AmountOfCopiesInStorage = 10
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 31,
-                Name = "Postit Neonkub",
+                Name = "Post-it notes",
                 Price = 25M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\postit.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 70
+                AmountOfCopiesInStorage = 70
             });
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 32,
-                Name = "Gaffelpärm Blå A4",
+                Name = "Folder Blue A4",
                 Price = 35M,
                 Description = "Ultrices vitae auctor eu augue ut. Leo vel fringilla est ullamcorper eget. A diam maecenas sed enim ut. Massa tincidunt dui ut ornare lectus. Nullam non nisi est sit amet facilisis magna. ",
                 CategoryId = 2,
                 ImageThumbnailUrl = "\\images2\\pärm.jpg",
-                IsInStock = true,
                 IsOnSale = true,
-                Amount = 53
+                AmountOfCopiesInStorage = 53
             });
             modelBuilder.Entity<UsedCurrency>().HasData(new UsedCurrency
             {

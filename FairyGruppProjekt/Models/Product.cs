@@ -15,8 +15,8 @@ namespace FairyGruppProjekt.Models
         public string? ImageThumbnailUrl { get; set; }
 
         public bool IsOnSale { get; set; }
-        public bool IsInStock { get; set; }
-        public int Amount { get; set; }
+        public int AmountOfCopiesInStorage { get; set; }
+        public int? AmountOfCopiesSold { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
         public UsedCurrency? Currency { get; set; }

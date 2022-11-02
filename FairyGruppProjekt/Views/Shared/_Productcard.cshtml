@@ -13,12 +13,23 @@
 
             <h4>@Model.Price.ToString("c")</h4>
 
-            <p class="button">
-                <a
-                   asp-controller="ShoppingCart"
+            @if (Model.AmountOfCopiesInStorage > 0)
+            {
+                <p class="button">
+                    <a asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
                    asp-route-ProductId="@Model.ProductId"><i class="fa-solid fa-bag-shopping"></i></a>
-            </p>
+                </p>
+            }
+
+            else if(Model.AmountOfCopiesInStorage == 0)
+            {
+
+                <h5 style="color:red;">Out of stock</h5>
+            }
+           
+
+          
         </div>
 
     </div>
