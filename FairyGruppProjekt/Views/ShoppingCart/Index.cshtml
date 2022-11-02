@@ -27,6 +27,7 @@
                         <a class="btn btn-primary" asp-controller="shoppingcart" asp-action="addtoshoppingcart" asp-route-productid=@item.Product.ProductId>+</a>
                     </td>
 
+
                 }
 
                 else if (item.Product.AmountOfCopiesInStorage <= item.Amount)
@@ -46,13 +47,14 @@
                 <td class="text-right">
                     @((item.Amount * item.Product.Price).ToString("c"))
                 </td>
+
             </tr>
         }
     </tbody>
     <tfoot>
         <tr>
             <td colspan="4" class="text-right">Total:
-                @Model.ShoppingCartTotal.ToString("c")
+                @Model.ShoppingCartTotal
             </td>
        
         </tr>

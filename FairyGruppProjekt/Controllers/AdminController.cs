@@ -171,9 +171,20 @@ namespace FairyGruppProjekt.Controllers
         public IActionResult OrderDetails(int id)
         {
             var order = _orderRepository.GetOrderById(id);
+            if (order != null)
+            {
+               
+                return View(order);
+            }
+            return BadRequest("Error retrieving products from this order");
+           
 
-            return View(order);
+        }
 
+
+        public ActionResult Distance()
+        {
+            return View();
         }
 
         //public IActionResult PopularProducts()

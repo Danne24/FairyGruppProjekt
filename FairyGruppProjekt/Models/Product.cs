@@ -19,5 +19,6 @@ namespace FairyGruppProjekt.Models
         public int? AmountOfCopiesSold { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
+        public UsedCurrency? Currency { get; set; }
     }
 }
