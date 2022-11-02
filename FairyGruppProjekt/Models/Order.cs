@@ -45,5 +45,6 @@ namespace FairyGruppProjekt.Models
         public DateTime? ExactDateOrderplaced { get; set; }
 
         public List<OrderDetail>? OrderDetails { get; set; }
+
     }
 }
