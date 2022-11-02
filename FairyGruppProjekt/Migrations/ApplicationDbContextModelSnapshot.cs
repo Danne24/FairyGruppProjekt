@@ -163,6 +163,9 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CurrencyTempKey")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -183,14 +186,11 @@ namespace FairyGruppProjekt.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("usedCurrencyTempKey")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("usedCurrencyTempKey");
+                    b.HasIndex("CurrencyTempKey");
 
                     b.ToTable("Products");
 
@@ -844,19 +844,15 @@ namespace FairyGruppProjekt.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "8b4a6140-aff4-4550-aa27-323143fa67ee",
-
+                            ConcurrencyStamp = "68631ac6-2584-4ce3-90aa-cca5f1e9aa9d",
                             Email = "admin@random.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@RANDOM.COM",
                             NormalizedUserName = "ADMIN@RANDOM.COM",
-
-                            PasswordHash = "AQAAAAEAACcQAAAAEJZpyYi+w1xmFNHcCoa7aSDq89A6Pk2veb9Z8bKi/z+k0+7d3eOhAi5gT+/RoQCWnA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHdh0bpG8G5WRxsToPpCYuw0tyTfXh1ct5gnLFuQUjhAIN+tXHv184rpDciFzSwHwg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "624029b1-8b43-4609-b613-c09c94639ea6",
-
+                            SecurityStamp = "3dc289da-1bf4-41f1-b60d-47e5e087f2a7",
                             TwoFactorEnabled = false,
                             UserName = "admin@random.com"
                         });
@@ -889,13 +885,13 @@ namespace FairyGruppProjekt.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "usedCurrency")
+                    b.HasOne("FairyGruppProjekt.Models.UsedCurrency", "Currency")
                         .WithMany()
-                        .HasForeignKey("usedCurrencyTempKey");
+                        .HasForeignKey("CurrencyTempKey");
 
                     b.Navigation("Category");
 
-                    b.Navigation("usedCurrency");
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("FairyGruppProjekt.Models.ShoppingCartItem", b =>
